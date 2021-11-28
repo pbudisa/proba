@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+@if (HttpContextAccessor.HttpContext.Session.GetString("Role") == "korisnik")
+{
+    <li class="nav-item">
+        <b class="nav-link text-dark">Pozdrav @HttpContextAccessor.HttpContext.Session.GetString("Username")</b>
+    </li>
+    <li class="nav-item">
+        <form style="border: none;" class="form-inline" asp-controller="Forma" asp-action="Logout">
+            <button type="submit" style="margin:0 auto;background-color:#ffffff;"><b>Odjava</b></button>
+        </form>
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="Forma" asp-action="Register"><b>SIGN UP</b></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="Forma" asp-action="Login"><b>LOGIN</b></a>
+    </li>
+
+}

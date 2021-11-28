@@ -1,0 +1,33 @@
+﻿@model IEnumerable<string>
+@{
+    ViewData["Title"] = "Register";
+}
+<h1 class="proizvodi" style="text-align:left;color:#74d3eb;">Novi korisnik:</h1>
+<hr class="crta-roza" style="margin:-10px 10px 30px;width:20%;">
+<p>@ViewBag.Poruka</p>
+<div class="row">
+    <div class="col-md-4 sredina">
+        <form asp-action="Register">
+            <div class="form-group">
+                <label for="username">Username:</label><br />
+                <input type="text" name="username" id="username" />
+            </div>
+            <div class="form-group">
+                <label for="password">Lozinka:</label><br />
+                <input type="password" name="password" id="password" />
+            </div>
+            <div class="form-group">
+                <label for="password2">Ponovi lozinku:</label><br />
+                <input type="password" name="password2" id="password2" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="cbp-vm-add" style="border:none;" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Home" asp-action="Index" class="rozo">Natrag na početnu</a>
+</div>
+

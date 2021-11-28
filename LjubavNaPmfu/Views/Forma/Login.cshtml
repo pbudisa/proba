@@ -1,0 +1,26 @@
+﻿@model IEnumerable<string>
+@{
+    ViewData["Title"] = "Login";
+}
+<h1 class="proizvodi" style="text-align:left;">Prijava:</h1>
+<hr class="crta" style="margin:-10px 10px 30px;width:10%;">
+
+<p>@ViewBag.Message</p>
+
+<div class="row sredina2">
+    <div class="col-md-4">
+        <form asp-action="Login">
+            <div class="form-group">
+                <label for="username">Username:</label><br />
+                <input type="text" name="username" id="username" />
+            </div>
+            <div class="form-group">
+                <label for="password">Lozinka:</label><br />
+                <input type="password" name="password" id="password" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="cbp-vm-add2" style="border:none;" />
+            </div>
+        </form>
+    </div>
+</div>
