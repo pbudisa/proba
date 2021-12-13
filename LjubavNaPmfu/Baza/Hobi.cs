@@ -7,9 +7,9 @@ using System.Collections.Generic;
 
 namespace LjubavNaPmfu.Baza
 {
-    public partial class Hobiji
+    public partial class Hobi
     {
-        public Hobiji()
+        public Hobi()
         {
             KorisnikHobiji = new HashSet<KorisnikHobiji>();
         }

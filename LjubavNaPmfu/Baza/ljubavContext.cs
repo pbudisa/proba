@@ -19,7 +19,7 @@ namespace LjubavNaPmfu.Baza
         {
         }
 
-        public virtual DbSet<Hobiji> Hobiji { get; set; }
+        public virtual DbSet<Hobi> Hobi { get; set; }
         public virtual DbSet<Korisnik> Korisnik { get; set; }
         public virtual DbSet<KorisnikHobiji> KorisnikHobiji { get; set; }
         public virtual DbSet<Profil> Profil { get; set; }
@@ -35,16 +35,13 @@ namespace LjubavNaPmfu.Baza
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Hobiji>(entity =>
+            modelBuilder.Entity<Hobi>(entity =>
             {
                 entity.HasKey(e => e.IdH);
 
-                entity.Property(e => e.IdH)
-                    .HasColumnName("id_h")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.IdH).HasColumnName("id_h");
 
                 entity.Property(e => e.Naziv)
-                    .IsRequired()
                     .HasColumnName("naziv")
                     .HasMaxLength(10);
             });
@@ -85,7 +82,7 @@ namespace LjubavNaPmfu.Baza
                     .WithMany(p => p.KorisnikHobiji)
                     .HasForeignKey(d => d.IdH)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Korisnik_hobiji_Hobiji");
+                    .HasConstraintName("FK_Korisnik_hobiji_Hobi");
 
                 entity.HasOne(d => d.IdPNavigation)
                     .WithMany(p => p.KorisnikHobiji)
