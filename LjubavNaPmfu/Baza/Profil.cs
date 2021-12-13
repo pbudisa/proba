@@ -9,11 +9,18 @@ namespace LjubavNaPmfu.Baza
 {
     public partial class Profil
     {
+        public Profil()
+        {
+            KorisnikHobiji = new HashSet<KorisnikHobiji>();
+        }
+
         public int IdP { get; set; }
         public int IdK { get; set; }
         public string Ime { get; set; }
         public int Dob { get; set; }
+        public string OMeni { get; set; }
 
         public virtual Korisnik IdKNavigation { get; set; }
+        public virtual ICollection<KorisnikHobiji> KorisnikHobiji { get; set; }
     }
 }

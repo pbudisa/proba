@@ -19,7 +19,9 @@ namespace LjubavNaPmfu.Baza
         {
         }
 
+        public virtual DbSet<Hobiji> Hobiji { get; set; }
         public virtual DbSet<Korisnik> Korisnik { get; set; }
+        public virtual DbSet<KorisnikHobiji> KorisnikHobiji { get; set; }
         public virtual DbSet<Profil> Profil { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -33,6 +35,20 @@ namespace LjubavNaPmfu.Baza
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Hobiji>(entity =>
+            {
+                entity.HasKey(e => e.IdH);
+
+                entity.Property(e => e.IdH)
+                    .HasColumnName("id_h")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.Naziv)
+                    .IsRequired()
+                    .HasColumnName("naziv")
+                    .HasMaxLength(10);
+            });
+
             modelBuilder.Entity<Korisnik>(entity =>
             {
                 entity.HasKey(e => e.IdK)
@@ -55,6 +71,29 @@ namespace LjubavNaPmfu.Baza
                     .HasMaxLength(20);
             });
 
+            modelBuilder.Entity<KorisnikHobiji>(entity =>
+            {
+                entity.HasKey(e => new { e.IdP, e.IdH });
+
+                entity.ToTable("Korisnik_hobiji");
+
+                entity.Property(e => e.IdP).HasColumnName("id_p");
+
+                entity.Property(e => e.IdH).HasColumnName("id_h");
+
+                entity.HasOne(d => d.IdHNavigation)
+                    .WithMany(p => p.KorisnikHobiji)
+                    .HasForeignKey(d => d.IdH)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Korisnik_hobiji_Hobiji");
+
+                entity.HasOne(d => d.IdPNavigation)
+                    .WithMany(p => p.KorisnikHobiji)
+                    .HasForeignKey(d => d.IdP)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Korisnik_hobiji_Profil");
+            });
+
             modelBuilder.Entity<Profil>(entity =>
             {
                 entity.HasKey(e => e.IdP);
@@ -67,6 +106,11 @@ namespace LjubavNaPmfu.Baza
                     .IsRequired()
                     .HasMaxLength(10)
                     .IsFixedLength();
+
+                entity.Property(e => e.OMeni)
+                    .IsRequired()
+                    .HasColumnName("O_meni")
+                    .HasMaxLength(20);
 
                 entity.HasOne(d => d.IdKNavigation)
                     .WithMany(p => p.Profil)
