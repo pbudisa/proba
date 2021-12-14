@@ -13,6 +13,6 @@ namespace LjubavNaPmfu.Baza
         public int IdH { get; set; }
 
         public virtual Hobi IdHNavigation { get; set; }
-        public virtual Profil IdPNavigation { get; set; }
+        public virtual Korisnik IdPNavigation { get; set; }
     }
 }

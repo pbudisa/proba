@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rYprYLFzE02Hj/HO7XUnIggJKxydL5tPczgRVX8t5gkhIyBT2VxzClo+g6xF4jeAgnIkm5YLu9j0RZXikJg3EQ==",
+  "dgSpecHash": "Qa4wyJBedA/oMTn9h+/tNA0Li3Wkd6oURn8c0mxIm/2BmUxf8b0kS3/n91YdSvYdKS/OVOVaeDOvvzybLT/Z5A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\PC\\Documents\\UPI\\proba\\LjubavNaPmfu\\LjubavNaPmfu.csproj",
+  "projectFilePath": "C:\\Baza\\proba\\LjubavNaPmfu\\LjubavNaPmfu.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
@@ -20,7 +20,7 @@
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.data.sqlclient\\1.1.3\\microsoft.data.sqlclient.1.1.3.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.entityframeworkcore\\3.1.15\\microsoft.entityframeworkcore.3.1.15.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\3.1.15\\microsoft.entityframeworkcore.abstractions.3.1.15.nupkg.sha512",
-    "C:\\Users\\PC\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\3.1.15\\microsoft.entityframeworkcore.analyzers.3.1.15.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\3.1.16\\microsoft.entityframeworkcore.analyzers.3.1.16.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.entityframeworkcore.design\\3.1.15\\microsoft.entityframeworkcore.design.3.1.15.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\3.1.15\\microsoft.entityframeworkcore.relational.3.1.15.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\3.1.15\\microsoft.entityframeworkcore.sqlserver.3.1.15.nupkg.sha512",

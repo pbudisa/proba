@@ -11,14 +11,18 @@ namespace LjubavNaPmfu.Baza
     {
         public Korisnik()
         {
-            Profil = new HashSet<Profil>();
+            KorisnikHobiji = new HashSet<KorisnikHobiji>();
         }
 
-        public int IdK { get; set; }
+        public int Id { get; set; }
         public string Username { get; set; }
         public string Lozinka { get; set; }
+        public string Ime { get; set; }
+        public int Dob { get; set; }
+        public string Omeni { get; set; }
+        public string Mobitel { get; set; }
         public string Role { get; set; }
 
-        public virtual ICollection<Profil> Profil { get; set; }
+        public virtual ICollection<KorisnikHobiji> KorisnikHobiji { get; set; }
     }
 }

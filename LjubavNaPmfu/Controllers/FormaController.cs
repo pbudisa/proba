@@ -6,15 +6,18 @@ using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Http;
 using LjubavNaPmfu.Services;
+using LjubavNaPmfu.Baza;
 
 namespace LjubavNaPmfu.Controllers
 {
     public class FormaController : Controller
     {
         private KorisnikService _formaservice;
-        public FormaController(KorisnikService ks)
+        private ljubavContext _context;
+        public FormaController(KorisnikService ks,ljubavContext c)
         {
             _formaservice = ks;
+            _context = c;
         }
 
         // GET: FormaController
@@ -22,6 +25,7 @@ namespace LjubavNaPmfu.Controllers
         {
             return View();
         }
+        
 
 
         public IActionResult Register()
@@ -37,6 +41,12 @@ namespace LjubavNaPmfu.Controllers
                 return RedirectToRoute(new { controller = "Home", action = "Index" });
             return View();
         }
+        public IActionResult Login2()
+        {
+            if (HttpContext.Session.GetString("Role") == "korisnik")
+                return RedirectToRoute(new { controller = "Home", action = "Index" });
+            return View();
+        }
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
@@ -47,21 +57,21 @@ namespace LjubavNaPmfu.Controllers
         // POST: FormaController/Register
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Register(string username, string password, string password2)
+        public IActionResult Register(string username, string password, string password2,string ime,string dob,string omeni, string mob)
         {
             if (HttpContext.Session.GetString("Role") == "korisnik")
                 return RedirectToRoute(new { controller = "Home", action = "Index" });
-            var korisnik = _formaservice.VerifyKorisnik(username, password, password2);
+            var korisnik = _formaservice.VerifyKorisnik(username, password, password2,ime,dob,omeni,mob);
             if (korisnik != null)
             {
                 _formaservice.Novi(korisnik);
+                return RedirectToRoute(new { controller = "Home", action = "Index" });
             }
             else
             {
                 ViewBag.Poruka = "Morate unijeti sve podatke i lozinka mora imati najmanje 5 znakova";
                 return View();
             }
-            return RedirectToRoute(new { controller = "Home", action = "Index" });
         }
 
         // POST: FormaController/Login
@@ -77,7 +87,14 @@ namespace LjubavNaPmfu.Controllers
                 HttpContext.Session.SetString("Id", korisnik.id.ToString());
                 HttpContext.Session.SetString("Username", korisnik.username);
                 HttpContext.Session.SetString("Role", korisnik.role);
-                return RedirectToRoute(new { controller = "Home", action = "Index" });
+                if (_formaservice.Hobijii(korisnik.id) == true)
+                {
+                    return RedirectToRoute(new { controller = "Home", action = "Index" });
+                }
+                else
+                {
+                    return RedirectToRoute(new { controller = "Home", action = "Prvi" });
+                }
             }
             else
             {

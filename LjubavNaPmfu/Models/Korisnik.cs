@@ -11,13 +11,21 @@ namespace LjubavNaPmfu.Models
         public string username { get; set; }
         public string lozinka { get; set; }
         public string role { get; set; }
+        public string ime { get; set; }
+        public int dob { get; set; }
+        public string omeni{ get;set; }
+        public string mob { get; set; }
 
-        public Korisnik(int? i,string u,string l,string r)
+        public Korisnik(int? i,string u,string l,string r,string im,int d,string o,string mo)
         {
             id = i;
             username = u;
             lozinka = l;
             role = r;
+            ime = im;
+            dob = d;
+            omeni = o;
+            mob = mo;
         }
     }
 }

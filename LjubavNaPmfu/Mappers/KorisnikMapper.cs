@@ -11,21 +11,24 @@ namespace LjubavNaPmfu.Mappers
     {
         public static Korisnik FromDatabase(Baza.Korisnik k)
         {
-            return new Korisnik(k.IdK, k.Username, k.Lozinka,k.Role);
+            return new Korisnik(k.Id, k.Username, k.Lozinka, k.Role,k.Ime,k.Dob,k.Omeni,k.Mobitel);
         }
         public static Baza.Korisnik ToDatabase(Korisnik k)
         {
             Baza.Korisnik x = new Baza.Korisnik
             {
-                Username=k.username,
-                Lozinka=k.lozinka,
-                Role = k.role
-
+                Username = k.username,
+                Lozinka = k.lozinka,
+                Role = k.role,
+                Ime=k.ime,
+                Dob=k.dob,
+                Omeni=k.omeni,
+                Mobitel=k.mob
             };
 
             if (k.id != null)
             {
-                x.IdK = (int)k.id;
+                x.Id = (int)k.id;
             }
 
             return x;

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>LjubavNaPmfu</id>
+    <version>2.0.0</version>
+    <authors>LjubavNaPmfu</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="Microsoft.EntityFrameworkCore" version="3.1.15" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.EntityFrameworkCore.Analyzers" version="3.1.16" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.EntityFrameworkCore.SqlServer" version="3.1.15" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.VisualStudio.Web.CodeGeneration.Design" version="3.1.5" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="13.0.1" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json.Bson" version="1.0.2" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework=".NETCoreApp3.1">
+        <frameworkReference name="Microsoft.AspNetCore.App" />
+      </group>
+    </frameworkReferences>
+    <contentFiles>
+      <files include="any/netcoreapp3.1/appsettings.Development.json" buildAction="Content" />
+      <files include="any/netcoreapp3.1/appsettings.json" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="C:\Baza\proba\LjubavNaPmfu\bin\Debug\netcoreapp3.1\LjubavNaPmfu.Views.dll" target="lib\netcoreapp3.1\LjubavNaPmfu.Views.dll" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\bin\Debug\netcoreapp3.1\LjubavNaPmfu.runtimeconfig.json" target="lib\netcoreapp3.1\LjubavNaPmfu.runtimeconfig.json" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\bin\Debug\netcoreapp3.1\LjubavNaPmfu.dll" target="lib\netcoreapp3.1\LjubavNaPmfu.dll" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.LjubavNaPmfu.Microsoft.AspNetCore.StaticWebAssets.props" target="build\Microsoft.AspNetCore.StaticWebAssets.props" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.build.LjubavNaPmfu.props" target="build\LjubavNaPmfu.props" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.buildMultiTargeting.LjubavNaPmfu.props" target="buildMultiTargeting\LjubavNaPmfu.props" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.buildTransitive.LjubavNaPmfu.props" target="buildTransitive\LjubavNaPmfu.props" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\css\site.css" target="staticwebassets\css\site.css" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\favicon.ico" target="staticwebassets\favicon.ico" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\js\site.js" target="staticwebassets\js\site.js" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css" target="staticwebassets\lib\bootstrap\dist\css\bootstrap-grid.css" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" target="staticwebassets\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css" target="staticwebassets\lib\bootstrap\dist\css\bootstrap-grid.min.css" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" target="staticwebassets\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css" target="staticwebassets\lib\bootstrap\dist\css\bootstrap-reboot.css" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" target="staticwebassets\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css" target="staticwebassets\lib\bootstrap\dist\css\bootstrap-reboot.min.css" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" target="staticwebassets\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\bootstrap\dist\css\bootstrap.css" target="staticwebassets\lib\bootstrap\dist\css\bootstrap.css" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" target="staticwebassets\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" target="staticwebassets\lib\bootstrap\dist\css\bootstrap.min.css" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" target="staticwebassets\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" target="staticwebassets\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" target="staticwebassets\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" target="staticwebassets\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" target="staticwebassets\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\bootstrap\dist\js\bootstrap.js" target="staticwebassets\lib\bootstrap\dist\js\bootstrap.js" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" target="staticwebassets\lib\bootstrap\dist\js\bootstrap.js.map" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" target="staticwebassets\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" target="staticwebassets\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\bootstrap\LICENSE" target="staticwebassets\lib\bootstrap\LICENSE\LICENSE" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" target="staticwebassets\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" target="staticwebassets\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt" target="staticwebassets\lib\jquery-validation-unobtrusive\LICENSE.txt" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\jquery-validation\dist\additional-methods.js" target="staticwebassets\lib\jquery-validation\dist\additional-methods.js" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\jquery-validation\dist\additional-methods.min.js" target="staticwebassets\lib\jquery-validation\dist\additional-methods.min.js" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\jquery-validation\dist\jquery.validate.js" target="staticwebassets\lib\jquery-validation\dist\jquery.validate.js" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" target="staticwebassets\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\jquery-validation\LICENSE.md" target="staticwebassets\lib\jquery-validation\LICENSE.md" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\jquery\dist\jquery.js" target="staticwebassets\lib\jquery\dist\jquery.js" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\jquery\dist\jquery.min.js" target="staticwebassets\lib\jquery\dist\jquery.min.js" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\jquery\dist\jquery.min.map" target="staticwebassets\lib\jquery\dist\jquery.min.map" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\wwwroot\lib\jquery\LICENSE.txt" target="staticwebassets\lib\jquery\LICENSE.txt" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\appsettings.Development.json" target="content\appsettings.Development.json" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\appsettings.Development.json" target="contentFiles\any\netcoreapp3.1\appsettings.Development.json" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\appsettings.json" target="content\appsettings.json" />
+    <file src="C:\Baza\proba\LjubavNaPmfu\appsettings.json" target="contentFiles\any\netcoreapp3.1\appsettings.json" />
+  </files>
+</package>
