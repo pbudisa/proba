@@ -23,7 +23,7 @@ namespace LjubavNaPmfu.Mappers
                 Ime=k.ime,
                 Dob=k.dob,
                 Omeni=k.omeni,
-                Mobitel=k.mob
+                Mobitel=k.mob,
             };
 
             if (k.id != null)

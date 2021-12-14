@@ -29,25 +29,6 @@ namespace LjubavNaPmfu.Controllers
             return View(await _context.Hobi.ToListAsync());
         }
 
-        // GET: HobijiController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: HobijiController/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: HobijiController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(int id)
-        {
-            return View();
-        }
 
         public async Task<IActionResult> Odaberi(int id)
         {
@@ -62,47 +43,6 @@ namespace LjubavNaPmfu.Controllers
         }
 
 
-
-        // GET: HobijiController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: HobijiController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: HobijiController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: HobijiController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+     
     }
 }

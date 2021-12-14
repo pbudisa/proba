@@ -41,12 +41,6 @@ namespace LjubavNaPmfu.Controllers
                 return RedirectToRoute(new { controller = "Home", action = "Index" });
             return View();
         }
-        public IActionResult Login2()
-        {
-            if (HttpContext.Session.GetString("Role") == "korisnik")
-                return RedirectToRoute(new { controller = "Home", action = "Index" });
-            return View();
-        }
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();

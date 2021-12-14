@@ -6,16 +6,23 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+
+using Microsoft.AspNetCore.Http;
+using LjubavNaPmfu.Baza;
 
 namespace LjubavNaPmfu.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ljubavContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,ljubavContext c)
         {
             _logger = logger;
+            _context = c;
         }
 
         public IActionResult Index()
@@ -31,9 +38,11 @@ namespace LjubavNaPmfu.Controllers
         {
             return View();
         }
-        public IActionResult Lista()
+        public async Task<IActionResult> Lista()
         {
-            return View();
+            int id_k = int.Parse(HttpContext.Session.GetString("Id"));
+            var sve = _context.Korisnik.Where(x => x.Id != id_k);
+            return View(await sve.ToListAsync());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

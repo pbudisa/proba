@@ -18,6 +18,7 @@ namespace LjubavNaPmfu.Services
         {
             _KorisnikRepository = re;
         }
+
         public void Novi(Korisnik k_)
         {
             _KorisnikRepository.Novi(k_);

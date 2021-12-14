@@ -276,7 +276,6 @@ C:\Baza\proba\LjubavNaPmfu\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.d
 C:\Baza\proba\LjubavNaPmfu\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Baza\proba\LjubavNaPmfu\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Baza\proba\LjubavNaPmfu\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Baza\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\LjubavNaPmfu.csprojAssemblyReference.cache
 C:\Baza\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\LjubavNaPmfu.AssemblyInfoInputs.cache
 C:\Baza\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\LjubavNaPmfu.AssemblyInfo.cs
 C:\Baza\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\LjubavNaPmfu.csproj.CoreCompileInputs.cache
@@ -309,3 +308,4 @@ C:\Baza\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\Razor\Views\Hobiji\Create.csh
 C:\Baza\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\Razor\Views\Hobiji\Index.cshtml.g.cs
 C:\Baza\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Baza\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\Razor\Views\Home\Prvi.cshtml.g.cs
+C:\Baza\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\Razor\Views\Home\Lista.cshtml.g.cs
