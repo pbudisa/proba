@@ -38,12 +38,7 @@ namespace LjubavNaPmfu.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> Lista()
-        {
-            int id_k = int.Parse(HttpContext.Session.GetString("Id"));
-            var sve = _context.Korisnik.Where(x => x.Id != id_k);
-            return View(await sve.ToListAsync());
-        }
+        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

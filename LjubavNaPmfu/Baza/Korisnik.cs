@@ -12,6 +12,8 @@ namespace LjubavNaPmfu.Baza
         public Korisnik()
         {
             KorisnikHobiji = new HashSet<KorisnikHobiji>();
+            MatchIdDrugiNavigation = new HashSet<Match>();
+            MatchIdPrviNavigation = new HashSet<Match>();
         }
 
         public int Id { get; set; }
@@ -23,6 +25,9 @@ namespace LjubavNaPmfu.Baza
         public string Mobitel { get; set; }
         public string Role { get; set; }
 
+
         public virtual ICollection<KorisnikHobiji> KorisnikHobiji { get; set; }
+        public virtual ICollection<Match> MatchIdDrugiNavigation { get; set; }
+        public virtual ICollection<Match> MatchIdPrviNavigation { get; set; }
     }
 }

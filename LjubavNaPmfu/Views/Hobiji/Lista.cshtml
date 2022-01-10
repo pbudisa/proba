@@ -1,0 +1,49 @@
+﻿@model IEnumerable<LjubavNaPmfu.Baza.Korisnik>
+
+@{
+    ViewData["Title"] = "Lista";
+}
+
+<h1>Korisnici</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Omeni)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobitel)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Omeni)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mobitel)
+            </td>
+            <td>
+                <a asp-action="Match" asp-route-id="@item.Id">Match</a>
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>

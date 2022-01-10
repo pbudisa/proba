@@ -4,6 +4,12 @@
 @if (HttpContextAccessor.HttpContext.Session.GetString("Role") == "korisnik")
 {
     <li class="nav-item">
+        <a class="nav-link" asp-controller="Hobiji" asp-action="Lista">Lista</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" asp-controller="Hobiji" asp-action="MatchLista">Match Lista</a>
+    </li>
+    <li class="nav-item">
         <b class="nav-link text-dark">Pozdrav @HttpContextAccessor.HttpContext.Session.GetString("Username")</b>
     </li>
     <li class="nav-item">

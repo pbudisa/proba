@@ -27,14 +27,14 @@ namespace LjubavNaPmfu.Repositories
         public void Dodaj(Models.KorisnikHobiji k)
         {
             var DbKorisnikHobiji = KorisnikHobijiMapper.ToDataBase(k);
-            var n = _dbContext.KorisnikHobiji.Where(x => (x.IdP.Equals(DbKorisnikHobiji.IdP)) && (x.IdH.Equals(DbKorisnikHobiji.IdH))).SingleOrDefault();
+            var n = _dbContext.KorisnikHobiji.Where(x => (x.Idk.Equals(DbKorisnikHobiji.Idk)) && (x.Idh.Equals(DbKorisnikHobiji.Idh))).SingleOrDefault();
             _dbContext.KorisnikHobiji.Add(DbKorisnikHobiji);
             _dbContext.SaveChanges();
         }
 
         public bool PostojiHobi(int? idp,int idh)
         {
-            var Dbkorisnikhobiji = _dbContext.KorisnikHobiji.Where(x => (x.IdP.Equals(idp)) && (x.IdH.Equals(idh))).FirstOrDefault();
+            var Dbkorisnikhobiji = _dbContext.KorisnikHobiji.Where(x => (x.Idk.Equals(idp)) && (x.Idh.Equals(idh))).FirstOrDefault();
             if (Dbkorisnikhobiji == null)
             {
                 return false;
@@ -50,7 +50,7 @@ namespace LjubavNaPmfu.Repositories
         }
         public bool Hobiji(int? id)
         {
-            var dbHobi = _dbContext.KorisnikHobiji.Where(x => (x.IdP.Equals(id))).FirstOrDefault();
+            var dbHobi = _dbContext.KorisnikHobiji.Where(x => (x.Idk.Equals(id))).FirstOrDefault();
             if(dbHobi == null)
             {
                 return false;
@@ -68,5 +68,26 @@ namespace LjubavNaPmfu.Repositories
                 return null;
             return KorisnikMapper.FromDatabase(dbKorisnik);
         }
+
+        public void Matchaj(Models.Match m)
+        {
+            var dbMatch = MatchMapper.ToDatabase(m);
+            _dbContext.Match.Add(dbMatch);
+            _dbContext.SaveChanges();
+        }
+
+        public bool Matchan(int prvi,int drugi)
+        {
+            var dbMatch = _dbContext.Match.Where(x => x.IdPrvi.Equals(prvi) && x.IdDrugi.Equals(drugi)).FirstOrDefault();
+            if(dbMatch == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
     }
 }

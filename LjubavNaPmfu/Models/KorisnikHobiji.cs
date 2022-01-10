@@ -7,10 +7,10 @@ namespace LjubavNaPmfu.Models
 {
     public class KorisnikHobiji
     {
-        public int? idp { get; set; }
+        public int idp { get; set; }
         public int idh { get; set; }
 
-        public KorisnikHobiji(int? p,int h)
+        public KorisnikHobiji(int p,int h)
         {
             idp = p;
             idh = h;

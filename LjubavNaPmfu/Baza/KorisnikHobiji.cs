@@ -9,10 +9,10 @@ namespace LjubavNaPmfu.Baza
 {
     public partial class KorisnikHobiji
     {
-        public int IdP { get; set; }
-        public int IdH { get; set; }
+        public int Idk { get; set; }
+        public int Idh { get; set; }
 
-        public virtual Hobi IdHNavigation { get; set; }
-        public virtual Korisnik IdPNavigation { get; set; }
+        public virtual Hobi IdhNavigation { get; set; }
+        public virtual Korisnik IdkNavigation { get; set; }
     }
 }

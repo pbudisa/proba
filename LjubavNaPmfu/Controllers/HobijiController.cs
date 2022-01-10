@@ -41,8 +41,31 @@ namespace LjubavNaPmfu.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
+        public async Task<IActionResult> Lista()
+        {
+            int id_k = int.Parse(HttpContext.Session.GetString("Id"));
+            var sve = _context.Korisnik.Where(x => x.Id != id_k);
+            return View(await sve.ToListAsync());
+        }
+        public async Task<IActionResult> Match(int id)
+        {
+            int id_k = int.Parse(HttpContext.Session.GetString("Id"));
+            Models.Match m = new Models.Match(id_k, id);
+            if (_ks.Matchan(m.id1,m.id2) == false)
+            {
+                _ks.Matchaj(m);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToRoute(new { controller = "Hobiji", action = "Lista" });
+        }
+
+        public async Task<IActionResult> MatchLista()
+        {
+            int id_k = int.Parse(HttpContext.Session.GetString("Id"));
+            var sve = _context.Match.Include(k=>k.IdPrviNavigation).Where(x => x.IdDrugi.Equals(id_k));
+            return View(await sve.ToListAsync());
+        }
 
 
-     
     }
 }

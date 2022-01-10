@@ -54,5 +54,14 @@ namespace LjubavNaPmfu.Services
         {
             return _KorisnikRepository.Hobiji(id);
         }
+        public void Matchaj(Models.Match m)
+        {
+            _KorisnikRepository.Matchaj(m);
+        }
+        public bool Matchan(int prvi,int drugi)
+        {
+            return _KorisnikRepository.Matchan(prvi,drugi);
+        }
+
     }
 }

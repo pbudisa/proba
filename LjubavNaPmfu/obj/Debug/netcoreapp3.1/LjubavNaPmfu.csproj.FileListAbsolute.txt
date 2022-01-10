@@ -308,4 +308,6 @@ C:\Baza\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\Razor\Views\Hobiji\Create.csh
 C:\Baza\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\Razor\Views\Hobiji\Index.cshtml.g.cs
 C:\Baza\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Baza\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\Razor\Views\Home\Prvi.cshtml.g.cs
-C:\Baza\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\Razor\Views\Home\Lista.cshtml.g.cs
+C:\Baza\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\LjubavNaPmfu.csprojAssemblyReference.cache
+C:\Baza\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\Razor\Views\Hobiji\Lista.cshtml.g.cs
+C:\Baza\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\Razor\Views\Hobiji\MatchLista.cshtml.g.cs

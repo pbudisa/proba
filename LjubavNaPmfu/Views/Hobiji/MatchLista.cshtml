@@ -1,0 +1,46 @@
+﻿@model IEnumerable<LjubavNaPmfu.Baza.Match>
+
+@{
+    ViewData["Title"] = "MatchLista";
+}
+
+<h1>MatchLista</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdPrviNavigation.Ime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdPrviNavigation.Dob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdPrviNavigation.Omeni)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdPrviNavigation.Mobitel)
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPrviNavigation.Ime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPrviNavigation.Dob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPrviNavigation.Omeni)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPrviNavigation.Mobitel)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>

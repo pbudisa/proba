@@ -12,18 +12,16 @@ namespace LjubavNaPmfu.Mappers
     {
         public static Models.KorisnikHobiji FromDatabase(Baza.KorisnikHobiji h)
         {
-            return new Models.KorisnikHobiji(h.IdP, h.IdH);
+            return new Models.KorisnikHobiji(h.Idk, h.Idh);
         }
         public static Baza.KorisnikHobiji ToDataBase(Models.KorisnikHobiji h)
         {
             Baza.KorisnikHobiji x = new Baza.KorisnikHobiji
             {
-                IdH = h.idh
+                Idh = h.idh,
+                Idk=h.idp
             };
-            if (h.idp != null)
-            {
-                x.IdP = (int)h.idp;
-            }
+            
             return x;
         }
 

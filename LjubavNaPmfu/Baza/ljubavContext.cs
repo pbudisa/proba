@@ -22,15 +22,14 @@ namespace LjubavNaPmfu.Baza
         public virtual DbSet<Hobi> Hobi { get; set; }
         public virtual DbSet<Korisnik> Korisnik { get; set; }
         public virtual DbSet<KorisnikHobiji> KorisnikHobiji { get; set; }
+        public virtual DbSet<Match> Match { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#pragma warning disable CS1030 // #warning: 'To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.'
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Data Source=DESKTOP-0ST8JT7\\SQLEXPRESS2019;Initial Catalog=ljubav;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-#pragma warning restore CS1030 // #warning: 'To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.'
             }
         }
 
@@ -76,25 +75,42 @@ namespace LjubavNaPmfu.Baza
 
             modelBuilder.Entity<KorisnikHobiji>(entity =>
             {
-                entity.HasKey(e => new { e.IdP, e.IdH });
+                entity.HasKey(e => new { e.Idk, e.Idh });
 
                 entity.ToTable("Korisnik_hobiji");
 
-                entity.Property(e => e.IdP).HasColumnName("id_p");
-
-                entity.Property(e => e.IdH).HasColumnName("id_h");
-
-                entity.HasOne(d => d.IdHNavigation)
+                entity.HasOne(d => d.IdhNavigation)
                     .WithMany(p => p.KorisnikHobiji)
-                    .HasForeignKey(d => d.IdH)
+                    .HasForeignKey(d => d.Idh)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Korisnik_hobiji_Hobi");
+                    .HasConstraintName("FK__Korisnik_ho__Idh__756D6ECB");
 
-                entity.HasOne(d => d.IdPNavigation)
+                entity.HasOne(d => d.IdkNavigation)
                     .WithMany(p => p.KorisnikHobiji)
-                    .HasForeignKey(d => d.IdP)
+                    .HasForeignKey(d => d.Idk)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Korisnik_hobiji_Korisnik");
+                    .HasConstraintName("FK__Korisnik_ho__Idk__74794A92");
+            });
+
+            modelBuilder.Entity<Match>(entity =>
+            {
+                entity.HasKey(e => new { e.IdPrvi, e.IdDrugi });
+
+                entity.Property(e => e.IdPrvi).HasColumnName("id_prvi");
+
+                entity.Property(e => e.IdDrugi).HasColumnName("id_drugi");
+
+                entity.HasOne(d => d.IdDrugiNavigation)
+                    .WithMany(p => p.MatchIdDrugiNavigation)
+                    .HasForeignKey(d => d.IdDrugi)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Match_Korisnik1");
+
+                entity.HasOne(d => d.IdPrviNavigation)
+                    .WithMany(p => p.MatchIdPrviNavigation)
+                    .HasForeignKey(d => d.IdPrvi)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Match_Korisnik");
             });
 
             OnModelCreatingPartial(modelBuilder);
