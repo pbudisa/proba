@@ -62,9 +62,5 @@ namespace LjubavNaPmfu.Services
         {
             return _KorisnikRepository.Matchan(prvi,drugi);
         }
-        public bool Zanemari(int id,Baza.Korisnik k)
-        {
-            return _KorisnikRepository.Zanemari(id,k);
-        }
     }
 }

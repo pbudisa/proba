@@ -89,18 +89,6 @@ namespace LjubavNaPmfu.Repositories
                 return true;
             }
         }
-        public bool Zanemari(int id,Baza.Korisnik k)
-        {
-            var ma = _dbContext.Match.Where(x => x.IdPrvi.Equals(id) && x.IdDrugi.Equals(k.Id));
-            if (ma.Any()==true)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
 
     }
 }

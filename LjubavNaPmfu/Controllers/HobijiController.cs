@@ -75,8 +75,26 @@ namespace LjubavNaPmfu.Controllers
         public async Task<IActionResult> MatchLista()
         {
             int id_k = int.Parse(HttpContext.Session.GetString("Id"));
-            var sve = _context.Match.Include(k=>k.IdPrviNavigation).Where(x => x.IdDrugi.Equals(id_k));
-            return View(await sve.ToListAsync());
+            var posebni = _context.Match.Include(k=>k.IdPrviNavigation).Where(x=> x.IdPrvi.Equals(id_k));
+            var sve = _context.Match.Include(k => k.IdPrviNavigation).Where(x => x.IdDrugi.Equals(id_k));
+            var popis = sve.ToList();
+            List<Match> lista = new List<Match>();
+
+            if(posebni.Count()>0 && popis.Count >0)
+            {
+                foreach(var p in posebni)
+                {
+                    for(int i = 0; i < popis.Count(); i++)
+                    {
+                        if(p.IdDrugi == popis[i].IdPrvi)
+                        {
+                            lista.Add(popis[i]);
+                        }
+                    }
+                }
+            }
+            
+            return View(lista.ToList());
         }
         public async Task<IActionResult> Profil()
         {
