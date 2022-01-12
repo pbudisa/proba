@@ -25,7 +25,6 @@ namespace LjubavNaPmfu.Baza
         public string Mobitel { get; set; }
         public string Role { get; set; }
 
-
         public virtual ICollection<KorisnikHobiji> KorisnikHobiji { get; set; }
         public virtual ICollection<Match> MatchIdDrugiNavigation { get; set; }
         public virtual ICollection<Match> MatchIdPrviNavigation { get; set; }

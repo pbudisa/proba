@@ -17,7 +17,7 @@ namespace LjubavNaPmfu.Controllers
         private readonly ljubavContext _context;
         private readonly KorisnikService _ks;
 
-        public HobijiController(ljubavContext _c,KorisnikService _k)
+        public HobijiController(ljubavContext _c, KorisnikService _k)
         {
             _context = _c;
             _ks = _k;
@@ -34,7 +34,7 @@ namespace LjubavNaPmfu.Controllers
         {
             int id_k = int.Parse(HttpContext.Session.GetString("Id"));
             Models.KorisnikHobiji h = new Models.KorisnikHobiji(id_k, id);
-            if (_ks.PostojiHobi(id_k, id)==false)
+            if (_ks.PostojiHobi(id_k, id) == false)
             {
                 _ks.Dodaj(h);
                 await _context.SaveChangesAsync();
@@ -45,7 +45,20 @@ namespace LjubavNaPmfu.Controllers
         {
             int id_k = int.Parse(HttpContext.Session.GetString("Id"));
             var sve = _context.Korisnik.Where(x => x.Id != id_k);
-            return View(await sve.ToListAsync());
+            var id = _context.Match.Where(x => x.IdPrvi.Equals(id_k));
+            var popis=sve.ToList();
+            foreach(var jedan in id)
+            {
+                for(int i = 0; i < popis.Count(); i++)
+                {
+                    if (jedan.IdDrugi.Equals(popis[i].Id))
+                    {
+                        popis.Remove(popis[i]);
+                    }
+                }
+            }
+            
+            return View(popis.ToList());
         }
         public async Task<IActionResult> Match(int id)
         {
@@ -65,7 +78,12 @@ namespace LjubavNaPmfu.Controllers
             var sve = _context.Match.Include(k=>k.IdPrviNavigation).Where(x => x.IdDrugi.Equals(id_k));
             return View(await sve.ToListAsync());
         }
-
+        public async Task<IActionResult> Profil()
+        {
+            int id_k = int.Parse(HttpContext.Session.GetString("Id"));
+            var profil = _context.KorisnikHobiji.Include(h=>h.IdhNavigation).Include(k=>k.IdkNavigation).Where(x => x.IdkNavigation.Id.Equals(id_k));
+            return View(await profil.ToListAsync());
+        }
 
     }
 }

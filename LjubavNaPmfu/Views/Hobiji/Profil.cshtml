@@ -1,0 +1,20 @@
+﻿@model IEnumerable<LjubavNaPmfu.Baza.KorisnikHobiji>
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "Profil";
+}
+
+<h1>Moj Profil</h1>
+<hr />
+<h1>Ime: @HttpContextAccessor.HttpContext.Session.GetString("Ime")</h1>
+<h2>Dob: @HttpContextAccessor.HttpContext.Session.GetString("Dob")</h2>
+<h2>O meni: @HttpContextAccessor.HttpContext.Session.GetString("Omeni")</h2>
+<h3>Moje kategorije:</h3>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@Html.DisplayFor(modelItem => item.IdhNavigation.Naziv)</li>
+    }
+</ul>
+    

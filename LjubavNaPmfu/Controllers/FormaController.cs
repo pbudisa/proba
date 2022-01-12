@@ -81,6 +81,9 @@ namespace LjubavNaPmfu.Controllers
                 HttpContext.Session.SetString("Id", korisnik.id.ToString());
                 HttpContext.Session.SetString("Username", korisnik.username);
                 HttpContext.Session.SetString("Role", korisnik.role);
+                HttpContext.Session.SetString("Ime", korisnik.ime);
+                HttpContext.Session.SetString("Dob", korisnik.dob.ToString());
+                HttpContext.Session.SetString("Omeni", korisnik.omeni);
                 if (_formaservice.Hobijii(korisnik.id) == true)
                 {
                     return RedirectToRoute(new { controller = "Home", action = "Index" });

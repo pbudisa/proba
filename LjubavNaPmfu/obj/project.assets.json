@@ -8467,11 +8467,11 @@
   "project": {
     "version": "2.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Baza\\proba\\LjubavNaPmfu\\LjubavNaPmfu.csproj",
+      "projectUniqueName": "C:\\Baza\\upi\\proba\\LjubavNaPmfu\\LjubavNaPmfu.csproj",
       "projectName": "LjubavNaPmfu",
-      "projectPath": "C:\\Baza\\proba\\LjubavNaPmfu\\LjubavNaPmfu.csproj",
+      "projectPath": "C:\\Baza\\upi\\proba\\LjubavNaPmfu\\LjubavNaPmfu.csproj",
       "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Baza\\proba\\LjubavNaPmfu\\obj\\",
+      "outputPath": "C:\\Baza\\upi\\proba\\LjubavNaPmfu\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

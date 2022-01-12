@@ -79,6 +79,7 @@ namespace LjubavNaPmfu.Repositories
         public bool Matchan(int prvi,int drugi)
         {
             var dbMatch = _dbContext.Match.Where(x => x.IdPrvi.Equals(prvi) && x.IdDrugi.Equals(drugi)).FirstOrDefault();
+
             if(dbMatch == null)
             {
                 return false;
@@ -86,6 +87,18 @@ namespace LjubavNaPmfu.Repositories
             else
             {
                 return true;
+            }
+        }
+        public bool Zanemari(int id,Baza.Korisnik k)
+        {
+            var ma = _dbContext.Match.Where(x => x.IdPrvi.Equals(id) && x.IdDrugi.Equals(k.Id));
+            if (ma.Any()==true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
