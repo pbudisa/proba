@@ -31,14 +31,14 @@ namespace LjubavNaPmfu.Controllers
         public IActionResult Register()
         {
             if (HttpContext.Session.GetString("Role") == "korisnik")
-                return RedirectToRoute(new { controller = "Home", action = "Index" });
+                return RedirectToRoute(new { controller = "Hobiji", action = "Lista" });
             return View();
         }
 
         public IActionResult Login()
         {
             if (HttpContext.Session.GetString("Role") == "korisnik")
-                return RedirectToRoute(new { controller = "Home", action = "Index" });
+                return RedirectToRoute(new { controller = "Hobiji", action = "Lista" });
             return View();
         }
         public IActionResult Logout()
@@ -54,12 +54,12 @@ namespace LjubavNaPmfu.Controllers
         public IActionResult Register(string username, string password, string password2,string ime,string dob,string omeni, string mob)
         {
             if (HttpContext.Session.GetString("Role") == "korisnik")
-                return RedirectToRoute(new { controller = "Home", action = "Index" });
+                return RedirectToRoute(new { controller = "Hobiji", action = "Lista" });
             var korisnik = _formaservice.VerifyKorisnik(username, password, password2,ime,dob,omeni,mob);
             if (korisnik != null)
             {
                 _formaservice.Novi(korisnik);
-                return RedirectToRoute(new { controller = "Home", action = "Index" });
+                return RedirectToRoute(new { controller = "Hobiji", action = "Lista" });
             }
             else
             {
@@ -86,7 +86,7 @@ namespace LjubavNaPmfu.Controllers
                 HttpContext.Session.SetString("Omeni", korisnik.omeni);
                 if (_formaservice.Hobijii(korisnik.id) == true)
                 {
-                    return RedirectToRoute(new { controller = "Home", action = "Index" });
+                    return RedirectToRoute(new { controller = "Hobiji", action = "Lista" });
                 }
                 else
                 {

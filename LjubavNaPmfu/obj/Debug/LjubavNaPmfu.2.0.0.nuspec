@@ -35,7 +35,17 @@
     <file src="C:\Baza\upi\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.buildMultiTargeting.LjubavNaPmfu.props" target="buildMultiTargeting\LjubavNaPmfu.props" />
     <file src="C:\Baza\upi\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.buildTransitive.LjubavNaPmfu.props" target="buildTransitive\LjubavNaPmfu.props" />
     <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\css\site.css" target="staticwebassets\css\site.css" />
-    <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\favicon.ico" target="staticwebassets\favicon.ico" />
+    <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\d.png" target="staticwebassets\d.png" />
+    <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\favicon\android-chrome-192x192.png" target="staticwebassets\favicon\android-chrome-192x192.png" />
+    <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\favicon\android-chrome-256x256.png" target="staticwebassets\favicon\android-chrome-256x256.png" />
+    <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\favicon\apple-touch-icon.png" target="staticwebassets\favicon\apple-touch-icon.png" />
+    <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\favicon\browserconfig.xml" target="staticwebassets\favicon\browserconfig.xml" />
+    <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\favicon\favicon-16x16.png" target="staticwebassets\favicon\favicon-16x16.png" />
+    <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\favicon\favicon-32x32.png" target="staticwebassets\favicon\favicon-32x32.png" />
+    <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\favicon\favicon.ico" target="staticwebassets\favicon\favicon.ico" />
+    <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\favicon\mstile-150x150.png" target="staticwebassets\favicon\mstile-150x150.png" />
+    <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\favicon\safari-pinned-tab.svg" target="staticwebassets\favicon\safari-pinned-tab.svg" />
+    <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\favicon\site.webmanifest" target="staticwebassets\favicon\site.webmanifest" />
     <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\js\site.js" target="staticwebassets\js\site.js" />
     <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css" target="staticwebassets\lib\bootstrap\dist\css\bootstrap-grid.css" />
     <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" target="staticwebassets\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
@@ -70,6 +80,7 @@
     <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\lib\jquery\dist\jquery.min.js" target="staticwebassets\lib\jquery\dist\jquery.min.js" />
     <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\lib\jquery\dist\jquery.min.map" target="staticwebassets\lib\jquery\dist\jquery.min.map" />
     <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\lib\jquery\LICENSE.txt" target="staticwebassets\lib\jquery\LICENSE.txt" />
+    <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\logo-bili.png" target="staticwebassets\logo-bili.png" />
     <file src="C:\Baza\upi\proba\LjubavNaPmfu\appsettings.Development.json" target="content\appsettings.Development.json" />
     <file src="C:\Baza\upi\proba\LjubavNaPmfu\appsettings.Development.json" target="contentFiles\any\netcoreapp3.1\appsettings.Development.json" />
     <file src="C:\Baza\upi\proba\LjubavNaPmfu\appsettings.json" target="content\appsettings.json" />

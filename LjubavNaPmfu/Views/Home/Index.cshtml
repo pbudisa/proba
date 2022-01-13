@@ -1,7 +1,32 @@
-﻿@{
+﻿@model IEnumerable<string>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Poozdrav</h1>
+<div class="text-center" style="margin:40px;">
+    <h1 class="display-4">Pozdrav</h1>
+</div>
+
+<div style="margin:0px auto; width:1000px;">
+    <div style="float:left;width:500px;height:500px;">
+        <img src="~/d.png" width="500" />
+    </div>
+    <div style="float:left;width:500px;height:500px;background-color:#cd171fad;border-radius:60px;padding:60px;">
+
+        <p>@ViewBag.Message</p>
+        <form asp-action="Login">
+            <div class="form-group">
+                <label for="username">Username:</label><br />
+                <input type="text" name="username" id="username" />
+            </div>
+            <div class="form-group">
+                <label for="password">Lozinka:</label><br />
+                <input type="password" name="password" id="password" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="cbp-vm-add2" style="border:none;" />
+            </div>
+        </form>
+    </div>
 </div>

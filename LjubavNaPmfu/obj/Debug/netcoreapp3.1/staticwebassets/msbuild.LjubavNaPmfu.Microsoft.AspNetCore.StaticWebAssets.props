@@ -7,12 +7,82 @@
       <BasePath>_content/LjubavNaPmfu</BasePath>
       <RelativePath>css\site.css</RelativePath>
     </StaticWebAsset>
-    <StaticWebAsset Include="$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico">
+    <StaticWebAsset Include="$(MSBuildThisFileDirectory)..\staticwebassets\d.png">
       <SourceType>Package</SourceType>
       <SourceId>LjubavNaPmfu</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/LjubavNaPmfu</BasePath>
-      <RelativePath>favicon.ico</RelativePath>
+      <RelativePath>d.png</RelativePath>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$(MSBuildThisFileDirectory)..\staticwebassets\favicon\android-chrome-192x192.png">
+      <SourceType>Package</SourceType>
+      <SourceId>LjubavNaPmfu</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/LjubavNaPmfu</BasePath>
+      <RelativePath>favicon\android-chrome-192x192.png</RelativePath>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$(MSBuildThisFileDirectory)..\staticwebassets\favicon\android-chrome-256x256.png">
+      <SourceType>Package</SourceType>
+      <SourceId>LjubavNaPmfu</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/LjubavNaPmfu</BasePath>
+      <RelativePath>favicon\android-chrome-256x256.png</RelativePath>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$(MSBuildThisFileDirectory)..\staticwebassets\favicon\apple-touch-icon.png">
+      <SourceType>Package</SourceType>
+      <SourceId>LjubavNaPmfu</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/LjubavNaPmfu</BasePath>
+      <RelativePath>favicon\apple-touch-icon.png</RelativePath>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$(MSBuildThisFileDirectory)..\staticwebassets\favicon\browserconfig.xml">
+      <SourceType>Package</SourceType>
+      <SourceId>LjubavNaPmfu</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/LjubavNaPmfu</BasePath>
+      <RelativePath>favicon\browserconfig.xml</RelativePath>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$(MSBuildThisFileDirectory)..\staticwebassets\favicon\favicon-16x16.png">
+      <SourceType>Package</SourceType>
+      <SourceId>LjubavNaPmfu</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/LjubavNaPmfu</BasePath>
+      <RelativePath>favicon\favicon-16x16.png</RelativePath>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$(MSBuildThisFileDirectory)..\staticwebassets\favicon\favicon-32x32.png">
+      <SourceType>Package</SourceType>
+      <SourceId>LjubavNaPmfu</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/LjubavNaPmfu</BasePath>
+      <RelativePath>favicon\favicon-32x32.png</RelativePath>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$(MSBuildThisFileDirectory)..\staticwebassets\favicon\favicon.ico">
+      <SourceType>Package</SourceType>
+      <SourceId>LjubavNaPmfu</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/LjubavNaPmfu</BasePath>
+      <RelativePath>favicon\favicon.ico</RelativePath>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$(MSBuildThisFileDirectory)..\staticwebassets\favicon\mstile-150x150.png">
+      <SourceType>Package</SourceType>
+      <SourceId>LjubavNaPmfu</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/LjubavNaPmfu</BasePath>
+      <RelativePath>favicon\mstile-150x150.png</RelativePath>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$(MSBuildThisFileDirectory)..\staticwebassets\favicon\safari-pinned-tab.svg">
+      <SourceType>Package</SourceType>
+      <SourceId>LjubavNaPmfu</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/LjubavNaPmfu</BasePath>
+      <RelativePath>favicon\safari-pinned-tab.svg</RelativePath>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$(MSBuildThisFileDirectory)..\staticwebassets\favicon\site.webmanifest">
+      <SourceType>Package</SourceType>
+      <SourceId>LjubavNaPmfu</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/LjubavNaPmfu</BasePath>
+      <RelativePath>favicon\site.webmanifest</RelativePath>
     </StaticWebAsset>
     <StaticWebAsset Include="$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js">
       <SourceType>Package</SourceType>
@@ -251,6 +321,13 @@
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/LjubavNaPmfu</BasePath>
       <RelativePath>lib\jquery\LICENSE.txt</RelativePath>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$(MSBuildThisFileDirectory)..\staticwebassets\logo-bili.png">
+      <SourceType>Package</SourceType>
+      <SourceId>LjubavNaPmfu</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/LjubavNaPmfu</BasePath>
+      <RelativePath>logo-bili.png</RelativePath>
     </StaticWebAsset>
   </ItemGroup>
 </Project>
