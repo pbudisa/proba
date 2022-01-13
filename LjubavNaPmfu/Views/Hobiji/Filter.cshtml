@@ -1,0 +1,46 @@
+﻿@model IEnumerable<LjubavNaPmfu.Baza.KorisnikHobiji>
+
+<h1>Kategorija: @ViewBag.kategorija</h1>
+<div>
+    <a asp-action="Lista">Back to List</a>
+</div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IdkNavigation.Ime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IdkNavigation.Dob)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IdkNavigation.Mobitel)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdkNavigation.Ime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdkNavigation.Dob)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdkNavigation.Mobitel)
+                        </td>
+                        <td>
+                            <a asp-action="Match2" asp-route-id="@item.IdkNavigation.Id">Match</a>
+                        </td>
+                        <td>
+                            <a asp-action="Odbij2" asp-route-id="@item.IdkNavigation.Id">Odbij</a>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>

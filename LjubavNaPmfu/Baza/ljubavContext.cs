@@ -19,10 +19,12 @@ namespace LjubavNaPmfu.Baza
         {
         }
 
+        public virtual DbSet<Blokirani> Blokirani { get; set; }
         public virtual DbSet<Hobi> Hobi { get; set; }
         public virtual DbSet<Korisnik> Korisnik { get; set; }
         public virtual DbSet<KorisnikHobiji> KorisnikHobiji { get; set; }
         public virtual DbSet<Match> Match { get; set; }
+        public virtual DbSet<Odbijeni> Odbijeni { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -35,6 +37,27 @@ namespace LjubavNaPmfu.Baza
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Blokirani>(entity =>
+            {
+                entity.HasKey(e => new { e.IdPrvi, e.IdDrugi });
+
+                entity.Property(e => e.IdPrvi).HasColumnName("id_prvi");
+
+                entity.Property(e => e.IdDrugi).HasColumnName("id_drugi");
+
+                entity.HasOne(d => d.IdDrugiNavigation)
+                    .WithMany(p => p.BlokiraniIdDrugiNavigation)
+                    .HasForeignKey(d => d.IdDrugi)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Blokirani_Korisnik1");
+
+                entity.HasOne(d => d.IdPrviNavigation)
+                    .WithMany(p => p.BlokiraniIdPrviNavigation)
+                    .HasForeignKey(d => d.IdPrvi)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Blokirani_Korisnik");
+            });
+
             modelBuilder.Entity<Hobi>(entity =>
             {
                 entity.HasKey(e => e.IdH);
@@ -111,6 +134,27 @@ namespace LjubavNaPmfu.Baza
                     .HasForeignKey(d => d.IdPrvi)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Match_Korisnik");
+            });
+
+            modelBuilder.Entity<Odbijeni>(entity =>
+            {
+                entity.HasKey(e => new { e.IdPrvi, e.IdDrugi });
+
+                entity.Property(e => e.IdPrvi).HasColumnName("id_prvi");
+
+                entity.Property(e => e.IdDrugi).HasColumnName("id_drugi");
+
+                entity.HasOne(d => d.IdDrugiNavigation)
+                    .WithMany(p => p.OdbijeniIdDrugiNavigation)
+                    .HasForeignKey(d => d.IdDrugi)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Odbijeni_Korisnik1");
+
+                entity.HasOne(d => d.IdPrviNavigation)
+                    .WithMany(p => p.OdbijeniIdPrviNavigation)
+                    .HasForeignKey(d => d.IdPrvi)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Odbijeni_Korisnik");
             });
 
             OnModelCreatingPartial(modelBuilder);

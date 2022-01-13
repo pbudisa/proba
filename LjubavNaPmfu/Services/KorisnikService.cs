@@ -62,5 +62,21 @@ namespace LjubavNaPmfu.Services
         {
             return _KorisnikRepository.Matchan(prvi,drugi);
         }
+        public void Odbij(Models.Odbijeni o)
+        {
+            _KorisnikRepository.Odbij(o);
+        }
+        public bool Odbijen(int prvi, int drugi)
+        {
+            return _KorisnikRepository.Odbijen(prvi, drugi);
+        }
+        public void Blokaj(Models.Blokirani b)
+        {
+            _KorisnikRepository.Blokaj(b);
+        }
+        public bool Blokan(int prvi, int drugi)
+        {
+            return _KorisnikRepository.Blokan(prvi, drugi);
+        }
     }
 }

@@ -5,7 +5,20 @@
 }
 
 <h1>Korisnici</h1>
+<div>
+    <p>Kao Filter:</p>
+    <a asp-action="Filter" asp-route-kategorija="Sport">Sport</a>
+    <a asp-action="Filter" asp-route-kategorija="Kava">Kava</a>
+    <a asp-action="Filter" asp-route-kategorija="Glazba">Glazba</a>
+    <a asp-action="Filter" asp-route-kategorija="Životinje">Životinje</a>
+    <a asp-action="Filter" asp-route-kategorija="Crtanje">Crtanje</a>
+    <a asp-action="Filter" asp-route-kategorija="Plesanje">Plesanje</a>
+    <a asp-action="Filter" asp-route-kategorija="Serije">Serije</a>
+    <a asp-action="Filter" asp-route-kategorija="Pijevanje">Pijevanje</a>
+    <a asp-action="Filter" asp-route-kategorija="Igrice">Igrice</a>
+    <a asp-action="Filter" asp-route-kategorija="Putovanje">Putovanje</a>
 
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -42,7 +55,9 @@
             <td>
                 <a asp-action="Match" asp-route-id="@item.Id">Match</a>
             </td>
-            
+            <td>
+                <a asp-action="Odbij" asp-route-id="@item.Id">Odbij</a>
+            </td>
             
         </tr>
 }

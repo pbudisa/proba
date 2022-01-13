@@ -89,6 +89,42 @@ namespace LjubavNaPmfu.Repositories
                 return true;
             }
         }
+        public void Odbij(Models.Odbijeni o)
+        {
+            var dbOdbij = OdbijeniMapper.ToDatabase(o);
+            _dbContext.Odbijeni.Add(dbOdbij);
+            _dbContext.SaveChanges();
+        }
+        public bool Odbijen(int prvi,int drugi)
+        {
+            var dbOdbij=_dbContext.Odbijeni.Where(x=> x.IdPrvi.Equals(prvi) && x.IdDrugi.Equals(drugi)).FirstOrDefault();
+            if (dbOdbij == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        public void Blokaj(Models.Blokirani b)
+        {
+            var dbBLokaj = BlokiraniMapper.ToDatabase(b);
+            _dbContext.Blokirani.Add(dbBLokaj);
+            _dbContext.SaveChanges();
+        }
+        public bool Blokan(int prvi, int drugi)
+        {
+            var dbBlokan = _dbContext.Odbijeni.Where(x => x.IdPrvi.Equals(prvi) && x.IdDrugi.Equals(drugi)).FirstOrDefault();
+            if (dbBlokan == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
     }
 }

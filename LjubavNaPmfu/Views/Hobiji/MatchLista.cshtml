@@ -39,10 +39,15 @@
             <td>
                 @Html.DisplayFor(modelItem => item.IdPrviNavigation.Mobitel)
             </td>
-            
-            
+            <td>
+                <a asp-action="Chat">Chat</a>
+            </td>
+            <td>
+                <a asp-action="Blokiraj" asp-route-id="@item.IdPrvi">Blokiraj</a><br />
+            </td>
         </tr>
 }
     </tbody>
 </table>
+
 
