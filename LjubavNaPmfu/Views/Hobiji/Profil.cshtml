@@ -4,12 +4,13 @@
 @{
     ViewData["Title"] = "Profil";
 }
-
+<a asp-action="Lista">Natrag na popis</a>
 <h1>Moj Profil</h1>
 <hr />
-<h1>Ime: @HttpContextAccessor.HttpContext.Session.GetString("Ime")</h1>
-<h2>Dob: @HttpContextAccessor.HttpContext.Session.GetString("Dob")</h2>
-<h2>O meni: @HttpContextAccessor.HttpContext.Session.GetString("Omeni")</h2>
+<h1>Ime: @ViewBag.Ime</h1>
+<h2>Dob: @ViewBag.Dob</h2>
+<h2>O meni: @ViewBag.Omeni</h2>
+<h2>Studij: @ViewBag.Studij</h2>
 <h3>Moje kategorije:</h3>
 <ul>
     @foreach (var item in Model)
@@ -17,4 +18,3 @@
         <li>@Html.DisplayFor(modelItem => item.IdhNavigation.Naziv)</li>
     }
 </ul>
-    

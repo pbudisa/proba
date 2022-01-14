@@ -44,8 +44,9 @@ namespace LjubavNaPmfu.Controllers
         }
         public async Task<IActionResult> Lista()
         {
+            
             int id_k = int.Parse(HttpContext.Session.GetString("Id"));
-            var sve = _context.Korisnik.Where(x => x.Id != id_k);
+            var sve = _context.Korisnik.Include(s=>s.IdsNavigation).Where(x => x.Id != id_k);
             var id = _context.Match.Where(x => x.IdPrvi.Equals(id_k));
             var odbijeni = _context.Odbijeni.Where(x => x.IdPrvi.Equals(id_k));
             var blokani = _context.Blokirani.Where(x => x.IdPrvi.Equals(id_k));
@@ -148,21 +149,34 @@ namespace LjubavNaPmfu.Controllers
             return View(lista.ToList());
         }
 
-        public async Task<IActionResult> Chat()
+        public  ActionResult Chat()
         {
-            return View();
+            return View("Chat");
         }
-        public async Task<IActionResult> Profil()
+        public async Task<IActionResult> Profil(int id)
         {
-            int id_k = int.Parse(HttpContext.Session.GetString("Id"));
-            var profil = _context.KorisnikHobiji.Include(h=>h.IdhNavigation).Include(k=>k.IdkNavigation).Where(x => x.IdkNavigation.Id.Equals(id_k));
+            if(id == 0)
+            {
+                return View("Error2");
+            }
+            var dbkorisnik = _context.Korisnik.Include(s=>s.IdsNavigation).Where(x=>x.Id.Equals(id));
+            foreach(var k in dbkorisnik)
+            {
+                ViewBag.Ime = k.Ime;
+                ViewBag.Dob = k.Dob;
+                ViewBag.Omeni = k.Omeni;
+                ViewBag.Studij = k.IdsNavigation.Naziv;
+
+            }
+            var profil = _context.KorisnikHobiji.Include(h=>h.IdhNavigation).Include(k=>k.IdkNavigation).Where(x => x.IdkNavigation.Id.Equals(id));
             return View(await profil.ToListAsync());
         }
 
-        public async Task<IActionResult> Filter(string kategorija)
+        public async Task<IActionResult> Filter(string kategorija,string idk)
         {
             ViewBag.Kategorija = kategorija;
-            int id_k = int.Parse(HttpContext.Session.GetString("Id"));
+            ViewData["kategorija"] = kategorija;
+            int id_k = int.Parse(idk);
             var sve = _context.KorisnikHobiji.Include(k=>k.IdkNavigation).Include(h=>h.IdhNavigation).Where(x => x.IdhNavigation.Naziv.Equals(kategorija) && x.Idk!=id_k);
             var popis = sve.ToList();
             var id = _context.Match.Where(x => x.IdPrvi.Equals(id_k));

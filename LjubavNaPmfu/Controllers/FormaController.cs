@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using LjubavNaPmfu.Services;
 using LjubavNaPmfu.Baza;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace LjubavNaPmfu.Controllers
 {
@@ -32,9 +33,9 @@ namespace LjubavNaPmfu.Controllers
         {
             if (HttpContext.Session.GetString("Role") == "korisnik")
                 return RedirectToRoute(new { controller = "Hobiji", action = "Lista" });
+            ViewData["Ids"] = new SelectList(_context.StudijskeGrupe, "IdG", "Naziv");
             return View();
         }
-
         public IActionResult Login()
         {
             if (HttpContext.Session.GetString("Role") == "korisnik")
@@ -51,15 +52,16 @@ namespace LjubavNaPmfu.Controllers
         // POST: FormaController/Register
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Register(string username, string password, string password2,string ime,string dob,string omeni, string mob)
+        public IActionResult Register(string username, string password, string password2,string ime,string dob,string omeni, string mob,int studij)
         {
             if (HttpContext.Session.GetString("Role") == "korisnik")
                 return RedirectToRoute(new { controller = "Hobiji", action = "Lista" });
-            var korisnik = _formaservice.VerifyKorisnik(username, password, password2,ime,dob,omeni,mob);
+            ViewData["Ids"] = new SelectList(_context.StudijskeGrupe, "IdG", "Naziv", studij);
+            var korisnik = _formaservice.VerifyKorisnik(username, password, password2,ime,dob,omeni,mob,studij);
             if (korisnik != null)
             {
                 _formaservice.Novi(korisnik);
-                return RedirectToRoute(new { controller = "Hobiji", action = "Lista" });
+                return RedirectToRoute(new { controller = "Home", action = "Index" });
             }
             else
             {
@@ -67,7 +69,6 @@ namespace LjubavNaPmfu.Controllers
                 return View();
             }
         }
-
         // POST: FormaController/Login
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -81,9 +82,7 @@ namespace LjubavNaPmfu.Controllers
                 HttpContext.Session.SetString("Id", korisnik.id.ToString());
                 HttpContext.Session.SetString("Username", korisnik.username);
                 HttpContext.Session.SetString("Role", korisnik.role);
-                HttpContext.Session.SetString("Ime", korisnik.ime);
-                HttpContext.Session.SetString("Dob", korisnik.dob.ToString());
-                HttpContext.Session.SetString("Omeni", korisnik.omeni);
+                
                 if (_formaservice.Hobijii(korisnik.id) == true)
                 {
                     return RedirectToRoute(new { controller = "Hobiji", action = "Lista" });

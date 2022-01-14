@@ -1,66 +1,60 @@
 ﻿@model IEnumerable<LjubavNaPmfu.Baza.Korisnik>
-
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
 @{
     ViewData["Title"] = "Lista";
 }
 
 <h1>Korisnici</h1>
 <div>
-    <p>Kao Filter:</p>
-    <a asp-action="Filter" asp-route-kategorija="Sport">Sport</a>
-    <a asp-action="Filter" asp-route-kategorija="Kava">Kava</a>
-    <a asp-action="Filter" asp-route-kategorija="Glazba">Glazba</a>
-    <a asp-action="Filter" asp-route-kategorija="Životinje">Životinje</a>
-    <a asp-action="Filter" asp-route-kategorija="Crtanje">Crtanje</a>
-    <a asp-action="Filter" asp-route-kategorija="Plesanje">Plesanje</a>
-    <a asp-action="Filter" asp-route-kategorija="Serije">Serije</a>
-    <a asp-action="Filter" asp-route-kategorija="Pijevanje">Pijevanje</a>
-    <a asp-action="Filter" asp-route-kategorija="Igrice">Igrice</a>
-    <a asp-action="Filter" asp-route-kategorija="Putovanje">Putovanje</a>
+    <p>
+        Po kategorijama:
+        <a asp-action="Filter" asp-route-kategorija="Sport" asp-route-idk="@HttpContextAccessor.HttpContext.Session.GetString("Id")">Sport</a>
+        <a asp-action="Filter" asp-route-kategorija="Kava" asp-route-idk="@HttpContextAccessor.HttpContext.Session.GetString("Id")">Kava</a>
+        <a asp-action="Filter" asp-route-kategorija="Glazba" asp-route-idk="@HttpContextAccessor.HttpContext.Session.GetString("Id")">Glazba</a>
+        <a asp-action="Filter" asp-route-kategorija="Životinje" asp-route-idk="@HttpContextAccessor.HttpContext.Session.GetString("Id")">Životinje</a>
+        <a asp-action="Filter" asp-route-kategorija="Crtanje" asp-route-idk="@HttpContextAccessor.HttpContext.Session.GetString("Id")">Crtanje</a>
+        <a asp-action="Filter" asp-route-kategorija="Plesanje" asp-route-idk="@HttpContextAccessor.HttpContext.Session.GetString("Id")">Plesanje</a>
+        <a asp-action="Filter" asp-route-kategorija="Serije" asp-route-idk="@HttpContextAccessor.HttpContext.Session.GetString("Id")">Serije</a>
+        <a asp-action="Filter" asp-route-kategorija="Pijevanje" asp-route-idk="@HttpContextAccessor.HttpContext.Session.GetString("Id")">Pijevanje</a>
+        <a asp-action="Filter" asp-route-kategorija="Igrice" asp-route-idk="@HttpContextAccessor.HttpContext.Session.GetString("Id")">Igrice</a>
+        <a asp-action="Filter" asp-route-kategorija="Putovanje" asp-route-idk="@HttpContextAccessor.HttpContext.Session.GetString("Id")">Putovanje</a>
+    </p>
 
 </div>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Ime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Dob)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Omeni)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Mobitel)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Dob)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Omeni)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Mobitel)
-            </td>
-            <td>
+<hr />
+<div class="row container">
+
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-6">
+            <p>
+                Ime: @Html.DisplayFor(modelItem => item.Ime)
+            </p>
+            <p>
+                Dob: @Html.DisplayFor(modelItem => item.Dob)
+            </p>
+            <p>
+                O meni: @Html.DisplayFor(modelItem => item.Omeni)
+            </p>
+            <p>
+                Mobitel: @Html.DisplayFor(modelItem => item.Mobitel)
+            </p>
+            <p>
+                Studij: @Html.DisplayFor(modelItem => item.IdsNavigation.Naziv)
+            </p>
+            <p>
                 <a asp-action="Match" asp-route-id="@item.Id">Match</a>
-            </td>
-            <td>
+
+
                 <a asp-action="Odbij" asp-route-id="@item.Id">Odbij</a>
-            </td>
-            
-        </tr>
-}
-    </tbody>
-</table>
+
+
+                <a asp-action="Profil" asp-route-id="@item.Id">Profil</a>
+            </p>
+
+        </div>
+    }
+
+</div>
 

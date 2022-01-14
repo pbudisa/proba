@@ -30,7 +30,7 @@ namespace LjubavNaPmfu.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View("Index");
         }
 
         public IActionResult Privacy()
@@ -39,11 +39,18 @@ namespace LjubavNaPmfu.Controllers
         }
         public IActionResult Prvi()
         {
+            return View("Prvi");
+        }
+
+        public IActionResult Error2()
+        {
+            ViewBag.poruka = "Error 404";
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Login(string username, string password)
+        public IActionResult Index(string username, string password)
         {
             if (HttpContext.Session.GetString("Role") == "korisnik" || HttpContext.Session.GetString("Role") == "admin")
                 return RedirectToRoute(new { controller = "Home", action = "Index" });
@@ -67,8 +74,8 @@ namespace LjubavNaPmfu.Controllers
             }
             else
             {
-                ViewBag.Message = "Pogresan unos!";
-                return View();
+                ViewBag.Messag2 = "Pogresan unos!";
+                return View("Index");
             }
         }
 

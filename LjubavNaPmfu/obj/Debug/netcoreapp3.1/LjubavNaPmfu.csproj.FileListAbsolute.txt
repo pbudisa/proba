@@ -472,3 +472,4 @@ C:\Baza\upi\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\LjubavNaPmfu.genruntimeco
 C:\Baza\upi\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\Razor\Views\Hobiji\Profil.cshtml.g.cs
 C:\Baza\upi\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\Razor\Views\Hobiji\Chat.cshtml.g.cs
 C:\Baza\upi\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\Razor\Views\Hobiji\Filter.cshtml.g.cs
+C:\Baza\upi\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\Razor\Views\Home\Error2.cshtml.g.cs

@@ -11,7 +11,7 @@ namespace LjubavNaPmfu.Mappers
     {
         public static Korisnik FromDatabase(Baza.Korisnik k)
         {
-            return new Korisnik(k.Id, k.Username, k.Lozinka, k.Role,k.Ime,k.Dob,k.Omeni,k.Mobitel);
+            return new Korisnik(k.Id, k.Username, k.Lozinka, k.Role,k.Ime,k.Dob,k.Omeni,k.Mobitel,k.Ids);
         }
         public static Baza.Korisnik ToDatabase(Korisnik k)
         {
@@ -24,6 +24,7 @@ namespace LjubavNaPmfu.Mappers
                 Dob=k.dob,
                 Omeni=k.omeni,
                 Mobitel=k.mob,
+                Ids=k.ids
             };
 
             if (k.id != null)

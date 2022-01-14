@@ -25,6 +25,7 @@ namespace LjubavNaPmfu.Baza
         public virtual DbSet<KorisnikHobiji> KorisnikHobiji { get; set; }
         public virtual DbSet<Match> Match { get; set; }
         public virtual DbSet<Odbijeni> Odbijeni { get; set; }
+        public virtual DbSet<StudijskeGrupe> StudijskeGrupe { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -73,6 +74,8 @@ namespace LjubavNaPmfu.Baza
             {
                 entity.Property(e => e.Id).HasColumnName("id");
 
+                entity.Property(e => e.Ids).HasColumnName("ids");
+
                 entity.Property(e => e.Ime)
                     .IsRequired()
                     .HasMaxLength(10);
@@ -94,6 +97,11 @@ namespace LjubavNaPmfu.Baza
                     .IsRequired()
                     .HasColumnName("username")
                     .HasMaxLength(10);
+
+                entity.HasOne(d => d.IdsNavigation)
+                    .WithMany(p => p.Korisnik)
+                    .HasForeignKey(d => d.Ids)
+                    .HasConstraintName("FK_Korisnik_StudijskeGrupe");
             });
 
             modelBuilder.Entity<KorisnikHobiji>(entity =>
@@ -155,6 +163,19 @@ namespace LjubavNaPmfu.Baza
                     .HasForeignKey(d => d.IdPrvi)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Odbijeni_Korisnik");
+            });
+
+            modelBuilder.Entity<StudijskeGrupe>(entity =>
+            {
+                entity.HasKey(e => e.IdG)
+                    .HasName("PK__Studijsk__DC501A29451CB796");
+
+                entity.Property(e => e.IdG).HasColumnName("idG");
+
+                entity.Property(e => e.Naziv)
+                    .IsRequired()
+                    .HasColumnName("naziv")
+                    .HasMaxLength(50);
             });
 
             OnModelCreatingPartial(modelBuilder);

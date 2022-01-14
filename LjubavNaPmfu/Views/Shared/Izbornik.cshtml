@@ -4,22 +4,28 @@
 @if (HttpContextAccessor.HttpContext.Session.GetString("Role") == "korisnik")
 {
     <li class="nav-item">
-        <a class="nav-link" asp-controller="Hobiji" asp-action="Lista">Lista</a>
+        <a class="nav-link" asp-area="" asp-controller="Hobiji" asp-action="Lista">Home</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" asp-controller="Hobiji" asp-action="MatchLista">Match Lista</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" asp-route-id="@HttpContextAccessor.HttpContext.Session.GetString("Id")" asp-controller="Hobiji" asp-action="Profil">Profil</a>
     </li>
     <li class="nav-item">
         <b class="nav-link text-dark">Pozdrav @HttpContextAccessor.HttpContext.Session.GetString("Username")</b>
     </li>
     <li class="nav-item">
         <form style="border: none;" class="form-inline" asp-controller="Forma" asp-action="Logout">
-            <button type="submit" style="margin:0 auto;background-color:#ffffff;"><b>Odjava</b></button>
+            <button class="nav-item" type="submit" style="margin:5px auto;background-color:#ffffff;"><b>Odjava</b></button>
         </form>
     </li>
 }
 else
 {
+    <li class="nav-item">
+        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+    </li>
     <li class="nav-item">
         <a class="nav-link" asp-controller="Forma" asp-action="Register"><b>SIGN UP</b></a>
     </li>

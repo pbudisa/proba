@@ -28,7 +28,9 @@ namespace LjubavNaPmfu.Baza
         public string Omeni { get; set; }
         public string Mobitel { get; set; }
         public string Role { get; set; }
+        public int? Ids { get; set; }
 
+        public virtual StudijskeGrupe IdsNavigation { get; set; }
         public virtual ICollection<Blokirani> BlokiraniIdDrugiNavigation { get; set; }
         public virtual ICollection<Blokirani> BlokiraniIdPrviNavigation { get; set; }
         public virtual ICollection<KorisnikHobiji> KorisnikHobiji { get; set; }
