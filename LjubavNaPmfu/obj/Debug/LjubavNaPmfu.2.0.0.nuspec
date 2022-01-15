@@ -46,6 +46,7 @@
     <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\favicon\mstile-150x150.png" target="staticwebassets\favicon\mstile-150x150.png" />
     <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\favicon\safari-pinned-tab.svg" target="staticwebassets\favicon\safari-pinned-tab.svg" />
     <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\favicon\site.webmanifest" target="staticwebassets\favicon\site.webmanifest" />
+    <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\female.png" target="staticwebassets\female.png" />
     <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\js\site.js" target="staticwebassets\js\site.js" />
     <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css" target="staticwebassets\lib\bootstrap\dist\css\bootstrap-grid.css" />
     <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" target="staticwebassets\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
@@ -81,6 +82,7 @@
     <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\lib\jquery\dist\jquery.min.map" target="staticwebassets\lib\jquery\dist\jquery.min.map" />
     <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\lib\jquery\LICENSE.txt" target="staticwebassets\lib\jquery\LICENSE.txt" />
     <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\logo-bili.png" target="staticwebassets\logo-bili.png" />
+    <file src="C:\Baza\upi\proba\LjubavNaPmfu\wwwroot\male.png" target="staticwebassets\male.png" />
     <file src="C:\Baza\upi\proba\LjubavNaPmfu\appsettings.Development.json" target="content\appsettings.Development.json" />
     <file src="C:\Baza\upi\proba\LjubavNaPmfu\appsettings.Development.json" target="contentFiles\any\netcoreapp3.1\appsettings.Development.json" />
     <file src="C:\Baza\upi\proba\LjubavNaPmfu\appsettings.json" target="content\appsettings.json" />

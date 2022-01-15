@@ -5,16 +5,43 @@
     ViewData["Title"] = "Profil";
 }
 <a asp-action="Lista">Natrag na popis</a>
-<h1>Moj Profil</h1>
 <hr />
-<h1>Ime: @ViewBag.Ime</h1>
-<h2>Dob: @ViewBag.Dob</h2>
-<h2>O meni: @ViewBag.Omeni</h2>
-<h2>Studij: @ViewBag.Studij</h2>
-<h3>Moje kategorije:</h3>
-<ul>
-    @foreach (var item in Model)
-    {
-        <li>@Html.DisplayFor(modelItem => item.IdhNavigation.Naziv)</li>
+<div style="margin:20px 60px">
+    <div style="padding:60px 20px;float:left;margin:0px 50px;">
+        @if (ViewBag.Spol == "z")
+        {
+            <img src="/female.png" width="200" />
+        }
+        else
+        {
+            <img src="/male.png" width="200" />
+        }
+    </div>
+    <div style="float:left;">
+        <h3>Ime: @ViewBag.Ime</h3>
+        <h3>Dob: @ViewBag.Dob</h3>
+        <h3>O meni: @ViewBag.Omeni</h3>
+        <h3>Studij: @ViewBag.Studij</h3>
+        <h3>Moje kategorije:</h3>
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>@Html.DisplayFor(modelItem => item.IdhNavigation.Naziv)</li>
+            }
+        </ul>
+    </div>
+
+</div>
+<style type="text/css">
+    a {
+        text-decoration: none;
+        color: #cd171f;
+        padding: 0px 5px;
     }
-</ul>
+
+        a:hover {
+            color: #000;
+            text-decoration: none;
+        }
+</style>
+

@@ -84,6 +84,13 @@
       <BasePath>_content/LjubavNaPmfu</BasePath>
       <RelativePath>favicon\site.webmanifest</RelativePath>
     </StaticWebAsset>
+    <StaticWebAsset Include="$(MSBuildThisFileDirectory)..\staticwebassets\female.png">
+      <SourceType>Package</SourceType>
+      <SourceId>LjubavNaPmfu</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/LjubavNaPmfu</BasePath>
+      <RelativePath>female.png</RelativePath>
+    </StaticWebAsset>
     <StaticWebAsset Include="$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js">
       <SourceType>Package</SourceType>
       <SourceId>LjubavNaPmfu</SourceId>
@@ -328,6 +335,13 @@
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/LjubavNaPmfu</BasePath>
       <RelativePath>logo-bili.png</RelativePath>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$(MSBuildThisFileDirectory)..\staticwebassets\male.png">
+      <SourceType>Package</SourceType>
+      <SourceId>LjubavNaPmfu</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/LjubavNaPmfu</BasePath>
+      <RelativePath>male.png</RelativePath>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

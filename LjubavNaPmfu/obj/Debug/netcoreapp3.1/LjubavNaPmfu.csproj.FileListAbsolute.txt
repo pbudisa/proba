@@ -473,3 +473,4 @@ C:\Baza\upi\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\Razor\Views\Hobiji\Chat.c
 C:\Baza\upi\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\Razor\Views\Hobiji\Filter.cshtml.g.cs
 C:\Baza\upi\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\Razor\Views\Home\Error2.cshtml.g.cs
 C:\Baza\upi\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\Razor\Views\Hobiji\Grupa.cshtml.g.cs
+C:\Baza\upi\proba\LjubavNaPmfu\obj\Debug\netcoreapp3.1\Razor\Views\Hobiji\Spol.cshtml.g.cs

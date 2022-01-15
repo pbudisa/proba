@@ -29,41 +29,156 @@
         <a asp-action="Grupa" asp-route-studij="Kemija">Kemija</a>
         <a asp-action="Grupa" asp-route-studij="Matematika">Matematika</a>
     </p>
+    @if(ViewBag.zanimaju == "oboje")
+    {
+    <p>
+        Po spolovima
+        <a asp-action="Spol" asp-route-spoll="m">Muški</a>
+        <a asp-action="Spol" asp-route-spoll="z">Ženske</a>
+    </p>
+    }
 
 </div>
 <hr />
-<div class="row container">
+<div id="btnContainer">
+    <button class="btn" onclick="listView()"><i class="fa fa-bars"></i> List</button>
+    <button class="btn active" onclick="gridView()"><i class="fa fa-th-large"></i> Grid</button>
+</div>
+<br>
+<div class="row container" style="margin-left:0px;">
 
     @foreach (var item in Model)
     {
-        <div class="col-lg-6" style="margin:60px 0px; padding:10px 200px;">
-            <p>
-                Ime: @Html.DisplayFor(modelItem => item.Ime)
-            </p>
-            <p>
-                Dob: @Html.DisplayFor(modelItem => item.Dob)
-            </p>
-            <p>
-                O meni: @Html.DisplayFor(modelItem => item.Omeni)
-            </p>
-            <p>
-                Mobitel: @Html.DisplayFor(modelItem => item.Mobitel)
-            </p>
-            <p>
-                Studij: @Html.DisplayFor(modelItem => item.IdsNavigation.Naziv)
-            </p>
-            <p>
-                <a asp-action="Match" asp-route-id="@item.Id">Match</a>
+
+        <a class="profil" asp-action="Profil" asp-route-id="@item.Id">
+            <div class="column" style="padding:10px 20px;border:1px solid #888">
+                <div style="padding: 35px 0px 0px; float: left;">
+                    @if (item.Spol == "z")
+                    {
+                        <img src="../female.png" width="200" />
+                    }
+                    else
+                    {
+                        <img src="../male.png" width="200" />
+                    }
+                </div>  
+                <div style="float:left;padding:10px 20px 5px;">
+                    <p>
+                        Ime: @Html.DisplayFor(modelItem => item.Ime)
+                    </p>
+                    <p>
+                        Dob: @Html.DisplayFor(modelItem => item.Dob)
+                    </p>
+                    <p>
+                        O meni: @Html.DisplayFor(modelItem => item.Omeni)
+                    </p>
+                    <p>
+                        Studij: @Html.DisplayFor(modelItem => item.IdsNavigation.Naziv)
+                    </p>
+                    <p>
+                        <a class="linkovi" asp-action="Match" asp-route-id="@item.Id"><i class="fa fa-check" aria-hidden="true"></i></a>
 
 
-                <a asp-action="Odbij" asp-route-id="@item.Id">Odbij</a>
+                        <a class="linkovi" asp-action="Odbij" asp-route-id="@item.Id"><i class="fa fa-times" aria-hidden="true"></i></a>
 
-
-                <a asp-action="Profil" asp-route-id="@item.Id">Profil</a>
-            </p>
-
-        </div>
+                    </p>
+                </div>
+            </div>
+        </a>
     }
 
 </div>
 
+<style>
+
+    /* Create two equal columns that floats next to each other */
+    .column {
+        float: left;
+        width: 46%;
+        margin: 2%;
+        padding: 10px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    /* Style the buttons */
+    .btn {
+        border: none;
+        outline: none;
+        padding: 12px 16px;
+        background-color: #f1f1f1;
+        cursor: pointer;
+        margin:4% 0%;
+    }
+
+        .btn:hover {
+            background-color: #ddd;
+        }
+
+        .btn.active {
+            background-color: #cd171f;
+            color: white;
+        }
+    .linkovi {
+        color: #cd171f;
+        font-size:30px;
+        padding:0px 5px;
+        border-radius:8px;
+    }
+        .linkovi:hover {
+            background-color: #cd171f;
+            color:#fff;
+        }
+    a{
+        text-decoration:none;
+        color:#cd171f;
+        padding:0px 5px;
+    }
+        a:hover {
+            color: #000;
+            text-decoration: none;
+        }
+    .profil{
+        color:#000;
+        padding:0px;
+    }
+</style>
+<script>
+    // Get the elements with class="column"
+    var elements = document.getElementsByClassName("column");
+
+    // Declare a loop variable
+    var i;
+
+    // List View
+    function listView() {
+        for (i = 0; i < elements.length; i++) {
+            elements[i].style.width = "65%";
+            elements[i].style.margin = "2% 15%";
+            elements[i].style.padding = "0 12%";
+        }
+    }
+
+    // Grid View
+    function gridView() {
+        for (i = 0; i < elements.length; i++) {
+            elements[i].style.width = "46%";
+            elements[i].style.margin = "2%";
+        }
+    }
+
+    /* Optional: Add active class to the current button (highlight it) */
+    var container = document.getElementById("btnContainer");
+    var btns = container.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+</script>
