@@ -69,7 +69,7 @@ namespace LjubavNaPmfu.Controllers
                 }
                 else
                 {
-                    return RedirectToRoute(new { controller = "Home", action = "Prvi" });
+                    return RedirectToRoute(new { controller = "Hobiji", action = "Index" });
                 }
             }
             else

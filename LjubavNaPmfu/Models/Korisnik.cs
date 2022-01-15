@@ -16,8 +16,10 @@ namespace LjubavNaPmfu.Models
         public string omeni{ get;set; }
         public string mob { get; set; }
         public int? ids { get; set; }
+        public string spol { get; set; }
+        public string zanimaju { get; set; }
 
-        public Korisnik(int? i, string u, string l, string r, string im, int d, string o, string mo,int? s)
+        public Korisnik(int? i, string u, string l, string r, string im, int d, string o, string mo,int? s,string spo,string z)
         {
             id = i;
             username = u;
@@ -28,6 +30,8 @@ namespace LjubavNaPmfu.Models
             omeni = o;
             mob = mo;
             ids = s;
+            spol = spo;
+            zanimaju = z;
         }
     }
 }

@@ -1,0 +1,83 @@
+﻿@model IEnumerable<LjubavNaPmfu.Baza.Korisnik>
+
+@{
+    ViewData["Title"] = "Grupa";
+}
+
+<h1>Grupa: @ViewBag.grupa</h1>
+<p>
+    Po studijskim grupama:
+    <a asp-action="Grupa" asp-route-studij="Biologija">Biologija</a>
+    <a asp-action="Grupa" asp-route-studij="Fizika">Fizika</a>
+    <a asp-action="Grupa" asp-route-studij="Informatika">Informatika</a>
+    <a asp-action="Grupa" asp-route-studij="Kemija">Kemija</a>
+    <a asp-action="Grupa" asp-route-studij="Matematika">Matematika</a>
+</p>
+<p>
+    <a asp-action="Lista">Back to list</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lozinka)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Omeni)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobitel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdsNavigation.Naziv)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lozinka)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dob)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Omeni)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mobitel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdsNavigation.Naziv)
+                </td>
+                <td>
+                    <a asp-action="Match3" asp-route-id="@item.Id">Match</a>
+                </td>
+                <td>
+                    <a asp-action="Odbij3" asp-route-id="@item.Id">Odbij</a>
+                </td>
+                <td>
+                    <a asp-action="Profil" asp-route-id="@item.Id">Profil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -24,7 +24,7 @@ namespace LjubavNaPmfu.Services
             _KorisnikRepository.Novi(k_);
         }
 
-        public Models.Korisnik VerifyKorisnik(string username, string loz, string loz2,string ime,string dob,string omeni, string mob,int ids)
+        public Models.Korisnik VerifyKorisnik(string username, string loz, string loz2,string ime,string dob,string omeni, string mob,int ids,string spol,string zanimaju)
         {
             if (loz == null || loz2 == null)
                 return null;
@@ -32,7 +32,7 @@ namespace LjubavNaPmfu.Services
                 return null;
 
             if (!_KorisnikRepository.Postoji(username))
-                return new Models.Korisnik(null,username, loz,"korisnik",ime,int.Parse(dob),omeni,mob,ids);
+                return new Models.Korisnik(null,username, loz,"korisnik",ime,int.Parse(dob),omeni,mob,ids,spol,zanimaju);
             return null;
         }
 

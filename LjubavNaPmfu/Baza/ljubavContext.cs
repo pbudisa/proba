@@ -93,10 +93,14 @@ namespace LjubavNaPmfu.Baza
 
                 entity.Property(e => e.Role).HasMaxLength(10);
 
+                entity.Property(e => e.Spol).HasMaxLength(7);
+
                 entity.Property(e => e.Username)
                     .IsRequired()
                     .HasColumnName("username")
                     .HasMaxLength(10);
+
+                entity.Property(e => e.Zanimaju).HasMaxLength(7);
 
                 entity.HasOne(d => d.IdsNavigation)
                     .WithMany(p => p.Korisnik)

@@ -1,46 +1,62 @@
 ﻿@model IEnumerable<LjubavNaPmfu.Baza.KorisnikHobiji>
 
 <h1>Kategorija: @ViewBag.kategorija</h1>
+<p>
+    Po kategorijama:
+
+    <a asp-action="Filter" asp-route-kategorija="Crtanje">Crtanje</a>
+    <a asp-action="Filter" asp-route-kategorija="Glazba">Glazba</a>
+    <a asp-action="Filter" asp-route-kategorija="Igrice">Igrice</a>
+    <a asp-action="Filter" asp-route-kategorija="Kava">Kava</a>
+    <a asp-action="Filter" asp-route-kategorija="Pijevanje">Pijevanje</a>
+    <a asp-action="Filter" asp-route-kategorija="Plesanje">Plesanje</a>
+    <a asp-action="Filter" asp-route-kategorija="Putovanje">Putovanje</a>
+    <a asp-action="Filter" asp-route-kategorija="Serije">Serije</a>
+    <a asp-action="Filter" asp-route-kategorija="Sport">Sport</a>
+    <a asp-action="Filter" asp-route-kategorija="Životinje">Životinje</a>
+</p>
 <div>
     <a asp-action="Lista">Back to List</a>
 </div>
 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.IdkNavigation.Ime)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.IdkNavigation.Dob)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.IdkNavigation.Mobitel)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.IdkNavigation.Ime)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.IdkNavigation.Dob)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.IdkNavigation.Mobitel)
-                        </td>
-                        <td>
-                            <a asp-action="Match2" asp-route-id="@item.IdkNavigation.Id">Match</a>
-                        </td>
-                        <td>
-                            <a asp-action="Odbij2" asp-route-id="@item.IdkNavigation.Id">Odbij</a>
-                        </td>
-
-                    </tr>
-                }
-            </tbody>
-        </table>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdkNavigation.Ime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdkNavigation.Dob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdkNavigation.Mobitel)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdkNavigation.Ime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdkNavigation.Dob)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdkNavigation.Mobitel)
+                </td>
+                <td>
+                    <a asp-action="Match2" asp-route-id="@item.IdkNavigation.Id">Match</a>
+                </td>
+                <td>
+                    <a asp-action="Odbij2" asp-route-id="@item.IdkNavigation.Id">Odbij</a>
+                </td>
+                <td>
+                    <a asp-action="Profil" asp-route-id="@item.IdkNavigation.Id">Profil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

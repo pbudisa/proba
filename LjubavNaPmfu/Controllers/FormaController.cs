@@ -52,12 +52,12 @@ namespace LjubavNaPmfu.Controllers
         // POST: FormaController/Register
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Register(string username, string password, string password2,string ime,string dob,string omeni, string mob,int studij)
+        public IActionResult Register(string username, string password, string password2,string ime,string dob,string omeni, string mob,int studij,string spol,string zanimaju)
         {
             if (HttpContext.Session.GetString("Role") == "korisnik")
                 return RedirectToRoute(new { controller = "Hobiji", action = "Lista" });
             ViewData["Ids"] = new SelectList(_context.StudijskeGrupe, "IdG", "Naziv", studij);
-            var korisnik = _formaservice.VerifyKorisnik(username, password, password2,ime,dob,omeni,mob,studij);
+            var korisnik = _formaservice.VerifyKorisnik(username, password, password2,ime,dob,omeni,mob,studij,spol,zanimaju);
             if (korisnik != null)
             {
                 _formaservice.Novi(korisnik);
@@ -89,7 +89,7 @@ namespace LjubavNaPmfu.Controllers
                 }
                 else
                 {
-                    return RedirectToRoute(new { controller = "Home", action = "Prvi" });
+                    return RedirectToRoute(new { controller = "Hobiji", action = "Index" });
                 }
             }
             else

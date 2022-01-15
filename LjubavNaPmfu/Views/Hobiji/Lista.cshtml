@@ -9,16 +9,25 @@
 <div>
     <p>
         Po kategorijama:
-        <a asp-action="Filter" asp-route-kategorija="Sport" asp-route-idk="@HttpContextAccessor.HttpContext.Session.GetString("Id")">Sport</a>
-        <a asp-action="Filter" asp-route-kategorija="Kava" asp-route-idk="@HttpContextAccessor.HttpContext.Session.GetString("Id")">Kava</a>
-        <a asp-action="Filter" asp-route-kategorija="Glazba" asp-route-idk="@HttpContextAccessor.HttpContext.Session.GetString("Id")">Glazba</a>
-        <a asp-action="Filter" asp-route-kategorija="Životinje" asp-route-idk="@HttpContextAccessor.HttpContext.Session.GetString("Id")">Životinje</a>
-        <a asp-action="Filter" asp-route-kategorija="Crtanje" asp-route-idk="@HttpContextAccessor.HttpContext.Session.GetString("Id")">Crtanje</a>
-        <a asp-action="Filter" asp-route-kategorija="Plesanje" asp-route-idk="@HttpContextAccessor.HttpContext.Session.GetString("Id")">Plesanje</a>
-        <a asp-action="Filter" asp-route-kategorija="Serije" asp-route-idk="@HttpContextAccessor.HttpContext.Session.GetString("Id")">Serije</a>
-        <a asp-action="Filter" asp-route-kategorija="Pijevanje" asp-route-idk="@HttpContextAccessor.HttpContext.Session.GetString("Id")">Pijevanje</a>
-        <a asp-action="Filter" asp-route-kategorija="Igrice" asp-route-idk="@HttpContextAccessor.HttpContext.Session.GetString("Id")">Igrice</a>
-        <a asp-action="Filter" asp-route-kategorija="Putovanje" asp-route-idk="@HttpContextAccessor.HttpContext.Session.GetString("Id")">Putovanje</a>
+
+        <a asp-action="Filter" asp-route-kategorija="Crtanje">Crtanje</a>
+        <a asp-action="Filter" asp-route-kategorija="Glazba">Glazba</a>
+        <a asp-action="Filter" asp-route-kategorija="Igrice">Igrice</a>
+        <a asp-action="Filter" asp-route-kategorija="Kava">Kava</a>
+        <a asp-action="Filter" asp-route-kategorija="Pijevanje">Pijevanje</a>
+        <a asp-action="Filter" asp-route-kategorija="Plesanje">Plesanje</a>
+        <a asp-action="Filter" asp-route-kategorija="Putovanje">Putovanje</a>
+        <a asp-action="Filter" asp-route-kategorija="Serije">Serije</a>
+        <a asp-action="Filter" asp-route-kategorija="Sport">Sport</a>
+        <a asp-action="Filter" asp-route-kategorija="Životinje">Životinje</a>
+    </p>
+    <p>
+        Po studijskim grupama:
+        <a asp-action="Grupa" asp-route-studij="Biologija">Biologija</a>
+        <a asp-action="Grupa" asp-route-studij="Fizika">Fizika</a>
+        <a asp-action="Grupa" asp-route-studij="Informatika">Informatika</a>
+        <a asp-action="Grupa" asp-route-studij="Kemija">Kemija</a>
+        <a asp-action="Grupa" asp-route-studij="Matematika">Matematika</a>
     </p>
 
 </div>
@@ -27,7 +36,7 @@
 
     @foreach (var item in Model)
     {
-        <div class="col-lg-6">
+        <div class="col-lg-6" style="margin:60px 0px; padding:10px 200px;">
             <p>
                 Ime: @Html.DisplayFor(modelItem => item.Ime)
             </p>

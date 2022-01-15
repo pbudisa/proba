@@ -27,7 +27,21 @@ namespace LjubavNaPmfu.Controllers
         // GET: HobijiController
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Hobi.ToListAsync());
+            int id_k = int.Parse(HttpContext.Session.GetString("Id"));
+            var sve = _context.Hobi;
+            var posebni = _context.KorisnikHobiji.Where(x => x.Idk.Equals(id_k));
+            var popis = sve.ToList();
+            foreach(var p in posebni)
+            {
+                for (int i=0;i < popis.Count; i++)
+                {
+                    if(p.Idh == popis[i].IdH)
+                    {
+                        popis.Remove(popis[i]);
+                    }
+                }
+            }
+            return View(popis.ToList());
         }
 
 
@@ -46,6 +60,7 @@ namespace LjubavNaPmfu.Controllers
         {
             
             int id_k = int.Parse(HttpContext.Session.GetString("Id"));
+            var ja = _context.Korisnik.Where(x => x.Id.Equals(id_k)).FirstOrDefault();
             var sve = _context.Korisnik.Include(s=>s.IdsNavigation).Where(x => x.Id != id_k);
             var id = _context.Match.Where(x => x.IdPrvi.Equals(id_k));
             var odbijeni = _context.Odbijeni.Where(x => x.IdPrvi.Equals(id_k));
@@ -81,7 +96,101 @@ namespace LjubavNaPmfu.Controllers
                     }
                 }
             }
+            if (ja.Spol == "z")
+            {
+                if (ja.Zanimaju == "z")
+                {
+                    var spol = _context.Korisnik.Where(x => x.Spol.Equals("m") || (x.Spol.Equals("z") && x.Zanimaju.Equals("m")));
+                    foreach (var s in spol)
+                    {
+                        for (int i = 0; i < popis.Count; i++)
+                        {
+                            if (popis[i].Id.Equals(s.Id))
+                            {
+                                popis.Remove(popis[i]);
+                            }
+                        }
+                    }
+                }
+                else if (ja.Zanimaju == "m")
+                {
+                    var spol = _context.Korisnik.Where(x => x.Spol.Equals("z") || (x.Spol.Equals("m") && x.Zanimaju.Equals("m")));
+                    foreach (var s in spol)
+                    {
+                        for (int i = 0; i < popis.Count; i++)
+                        {
+                            if (popis[i].Id.Equals(s.Id))
+                            {
+                                popis.Remove(popis[i]);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    var spol = _context.Korisnik.Where(x => x.Zanimaju.Equals("m"));
+                    foreach (var s in spol)
+                    {
+                        for (int i = 0; i < popis.Count; i++)
+                        {
+                            if (popis[i].Id.Equals(s.Id))
+                            {
+                                popis.Remove(popis[i]);
+                            }
+                        }
+                    }
+                }
+            }
+            else if (ja.Spol == "m")
+            {
+                if (ja.Zanimaju == "z")
+                {
+                    var spol  = _context.Korisnik.Where(x => x.Spol.Equals("m") || (x.Spol.Equals("z") && x.Zanimaju.Equals("z")));
+                    foreach (var s in spol)
+                    {
+                        for (int i = 0; i < popis.Count; i++)
+                        {
+                            if (popis[i].Id.Equals(s.Id))
+                            {
+                                popis.Remove(popis[i]);
+                            }
+                        }
+                    }
+                }
+                else if (ja.Zanimaju == "m")
+                {
+                    var spol = _context.Korisnik.Where(x => x.Spol.Equals("z") || (x.Spol.Equals("m") && x.Zanimaju.Equals("z")));
+                    foreach (var s in spol)
+                    {
+                        for (int i = 0; i < popis.Count; i++)
+                        {
+                            if (popis[i].Id.Equals(s.Id))
+                            {
+                                popis.Remove(popis[i]);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    var spol  = _context.Korisnik.Where(x => x.Zanimaju.Equals("z"));
+                    foreach (var s in spol)
+                    {
+                        for (int i = 0; i < popis.Count; i++)
+                        {
+                            if (popis[i].Id.Equals(s.Id))
+                            {
+                                popis.Remove(popis[i]);
+                            }
+                        }
+                    }
+                }
+            }
+
             
+
+
+
             return View(popis.ToList());
         }
         public async Task<IActionResult> Match(int id)
@@ -166,17 +275,19 @@ namespace LjubavNaPmfu.Controllers
                 ViewBag.Dob = k.Dob;
                 ViewBag.Omeni = k.Omeni;
                 ViewBag.Studij = k.IdsNavigation.Naziv;
+                ViewBag.Spol = k.Spol;
+                ViewBag.Zanimaju = k.Zanimaju;
 
             }
             var profil = _context.KorisnikHobiji.Include(h=>h.IdhNavigation).Include(k=>k.IdkNavigation).Where(x => x.IdkNavigation.Id.Equals(id));
             return View(await profil.ToListAsync());
         }
 
-        public async Task<IActionResult> Filter(string kategorija,string idk)
+        public async Task<IActionResult> Filter(string kategorija)
         {
             ViewBag.Kategorija = kategorija;
-            ViewData["kategorija"] = kategorija;
-            int id_k = int.Parse(idk);
+            int id_k = int.Parse(HttpContext.Session.GetString("Id"));
+            var ja = _context.Korisnik.Where(x => x.Id.Equals(id_k)).FirstOrDefault();
             var sve = _context.KorisnikHobiji.Include(k=>k.IdkNavigation).Include(h=>h.IdhNavigation).Where(x => x.IdhNavigation.Naziv.Equals(kategorija) && x.Idk!=id_k);
             var popis = sve.ToList();
             var id = _context.Match.Where(x => x.IdPrvi.Equals(id_k));
@@ -212,6 +323,228 @@ namespace LjubavNaPmfu.Controllers
                     }
                 }
             }
+            if (ja.Spol == "z")
+            {
+                if (ja.Zanimaju == "z")
+                {
+                    var spol = _context.Korisnik.Where(x => x.Spol.Equals("m") || (x.Spol.Equals("z") && x.Zanimaju.Equals("m")));
+                    foreach (var s in spol)
+                    {
+                        for (int i = 0; i < popis.Count; i++)
+                        {
+                            if (popis[i].IdkNavigation.Id.Equals(s.Id))
+                            {
+                                popis.Remove(popis[i]);
+                            }
+                        }
+                    }
+                }
+                else if (ja.Zanimaju == "m")
+                {
+                    var spol = _context.Korisnik.Where(x => x.Spol.Equals("z") || (x.Spol.Equals("m") && x.Zanimaju.Equals("m")));
+                    foreach (var s in spol)
+                    {
+                        for (int i = 0; i < popis.Count; i++)
+                        {
+                            if (popis[i].IdkNavigation.Id.Equals(s.Id))
+                            {
+                                popis.Remove(popis[i]);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    var spol = _context.Korisnik.Where(x => x.Zanimaju.Equals("m"));
+                    foreach (var s in spol)
+                    {
+                        for (int i = 0; i < popis.Count; i++)
+                        {
+                            if (popis[i].IdkNavigation.Id.Equals(s.Id))
+                            {
+                                popis.Remove(popis[i]);
+                            }
+                        }
+                    }
+                }
+            }
+            else if (ja.Spol == "m")
+            {
+                if (ja.Zanimaju == "z")
+                {
+                    var spol = _context.Korisnik.Where(x => x.Spol.Equals("m") || (x.Spol.Equals("z") && x.Zanimaju.Equals("z")));
+                    foreach (var s in spol)
+                    {
+                        for (int i = 0; i < popis.Count; i++)
+                        {
+                            if (popis[i].IdkNavigation.Id.Equals(s.Id))
+                            {
+                                popis.Remove(popis[i]);
+                            }
+                        }
+                    }
+                }
+                else if (ja.Zanimaju == "m")
+                {
+                    var spol = _context.Korisnik.Where(x => x.Spol.Equals("z") || (x.Spol.Equals("m") && x.Zanimaju.Equals("z")));
+                    foreach (var s in spol)
+                    {
+                        for (int i = 0; i < popis.Count; i++)
+                        {
+                            if (popis[i].IdkNavigation.Id.Equals(s.Id))
+                            {
+                                popis.Remove(popis[i]);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    var spol = _context.Korisnik.Where(x => x.Zanimaju.Equals("z"));
+                    foreach (var s in spol)
+                    {
+                        for (int i = 0; i < popis.Count; i++)
+                        {
+                            if (popis[i].IdkNavigation.Id.Equals(s.Id))
+                            {
+                                popis.Remove(popis[i]);
+                            }
+                        }
+                    }
+                }
+            }
+            return View(popis.ToList());
+        }
+        public async Task<IActionResult> Grupa(string studij)
+        {
+            ViewBag.Grupa = studij;
+            int id_k = int.Parse(HttpContext.Session.GetString("Id"));
+            var ja = _context.Korisnik.Where(x => x.Id.Equals(id_k)).FirstOrDefault();
+            var sve = _context.Korisnik.Where(x =>x.IdsNavigation.Naziv==studij && x.Id != id_k);
+            var popis = sve.ToList();
+            var id = _context.Match.Where(x => x.IdPrvi.Equals(id_k));
+            var odbijeni = _context.Odbijeni.Where(x => x.IdPrvi.Equals(id_k));
+            var blokani = _context.Blokirani.Where(x => x.IdPrvi.Equals(id_k));
+            foreach (var jedan in id)
+            {
+                for (int i = 0; i < popis.Count(); i++)
+                {
+                    if (jedan.IdDrugi.Equals(popis[i].Id))
+                    {
+                        popis.Remove(popis[i]);
+                    }
+                }
+            }
+            foreach (var o in odbijeni)
+            {
+                for (int i = 0; i < popis.Count(); i++)
+                {
+                    if (o.IdPrvi.Equals(popis[i].Id) || o.IdDrugi.Equals(popis[i].Id))
+                    {
+                        popis.Remove(popis[i]);
+                    }
+                }
+            }
+            foreach (var b in blokani)
+            {
+                for (int i = 0; i < popis.Count(); i++)
+                {
+                    if (b.IdPrvi.Equals(popis[i].Id) || b.IdDrugi.Equals(popis[i].Id))
+                    {
+                        popis.Remove(popis[i]);
+                    }
+                }
+            }
+            if (ja.Spol == "z")
+            {
+                if (ja.Zanimaju == "z")
+                {
+                    var spol = _context.Korisnik.Where(x => x.Spol.Equals("m") || (x.Spol.Equals("z") && x.Zanimaju.Equals("m")));
+                    foreach (var s in spol)
+                    {
+                        for (int i = 0; i < popis.Count; i++)
+                        {
+                            if (popis[i].Id.Equals(s.Id))
+                            {
+                                popis.Remove(popis[i]);
+                            }
+                        }
+                    }
+                }
+                else if (ja.Zanimaju == "m")
+                {
+                    var spol = _context.Korisnik.Where(x => x.Spol.Equals("z") || (x.Spol.Equals("m") && x.Zanimaju.Equals("m")));
+                    foreach (var s in spol)
+                    {
+                        for (int i = 0; i < popis.Count; i++)
+                        {
+                            if (popis[i].Id.Equals(s.Id))
+                            {
+                                popis.Remove(popis[i]);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    var spol = _context.Korisnik.Where(x => x.Zanimaju.Equals("m"));
+                    foreach (var s in spol)
+                    {
+                        for (int i = 0; i < popis.Count; i++)
+                        {
+                            if (popis[i].Id.Equals(s.Id))
+                            {
+                                popis.Remove(popis[i]);
+                            }
+                        }
+                    }
+                }
+            }
+            else if (ja.Spol == "m")
+            {
+                if (ja.Zanimaju == "z")
+                {
+                    var spol = _context.Korisnik.Where(x => x.Spol.Equals("m") || (x.Spol.Equals("z") && x.Zanimaju.Equals("z")));
+                    foreach (var s in spol)
+                    {
+                        for (int i = 0; i < popis.Count; i++)
+                        {
+                            if (popis[i].Id.Equals(s.Id))
+                            {
+                                popis.Remove(popis[i]);
+                            }
+                        }
+                    }
+                }
+                else if (ja.Zanimaju == "m")
+                {
+                    var spol = _context.Korisnik.Where(x => x.Spol.Equals("z") || (x.Spol.Equals("m") && x.Zanimaju.Equals("z")));
+                    foreach (var s in spol)
+                    {
+                        for (int i = 0; i < popis.Count; i++)
+                        {
+                            if (popis[i].Id.Equals(s.Id))
+                            {
+                                popis.Remove(popis[i]);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    var spol = _context.Korisnik.Where(x => x.Zanimaju.Equals("z"));
+                    foreach (var s in spol)
+                    {
+                        for (int i = 0; i < popis.Count; i++)
+                        {
+                            if (popis[i].Id.Equals(s.Id))
+                            {
+                                popis.Remove(popis[i]);
+                            }
+                        }
+                    }
+                }
+            }
             return View(popis.ToList());
         }
 
@@ -239,7 +572,29 @@ namespace LjubavNaPmfu.Controllers
             return RedirectToRoute(new { controller = "Hobiji", action = "Filter" });
         }
 
+        public async Task<IActionResult> Match3(int id)
+        {
+            int id_k = int.Parse(HttpContext.Session.GetString("Id"));
+            Models.Match m = new Models.Match(id_k, id);
+            if (_ks.Matchan(m.id1, m.id2) == false)
+            {
+                _ks.Matchaj(m);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToRoute(new { controller = "Hobiji", action = "Grupa" });
+        }
 
+        public async Task<IActionResult> Odbij3(int id)
+        {
+            int id_k = int.Parse(HttpContext.Session.GetString("Id"));
+            Models.Odbijeni o = new Models.Odbijeni(id_k, id);
+            if (_ks.Odbijen(id_k, id) == false)
+            {
+                _ks.Odbij(o);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToRoute(new { controller = "Hobiji", action = "Grupa" });
+        }
 
 
     }
