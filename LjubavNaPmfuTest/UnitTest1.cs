@@ -36,7 +36,7 @@ namespace LjubavNaPmfuTest
         public void TestRegister()
         {
             KorisnikService ks = new KorisnikService(null);
-            var result = ks.VerifyKorisnik("", "123456", "123456", "Ana", "21", "Nesto", "mobitel", 2);
+            var result = ks.VerifyKorisnik("", "123456", "123456", "Ana", "21", "Nesto", "mobitel", 2, "z", "m");
 
             Assert.AreEqual(null, result);
         }
@@ -44,7 +44,7 @@ namespace LjubavNaPmfuTest
         public void TestRegister2()
         {
             KorisnikService ks = new KorisnikService(null);
-            var result = ks.VerifyKorisnik("aanic", "123456", "124526", "Ana", "21", "Nesto", "mobitel", 2);
+            var result = ks.VerifyKorisnik("aanic", "123456", "124526", "Ana", "21", "Nesto", "mobitel", 2,"z","m");
 
             Assert.AreEqual(null, result);
         }
@@ -52,7 +52,7 @@ namespace LjubavNaPmfuTest
         public void TestRegister3()
         {
             KorisnikService ks = new KorisnikService(null);
-            var result = ks.VerifyKorisnik("aanic", "1234", "1234", "Ana", "21", "Nesto", "mobitel", 2);
+            var result = ks.VerifyKorisnik("aanic", "1234", "1234", "Ana", "21", "Nesto", "mobitel", 2, "z", "m");
 
             Assert.AreEqual(null, result);
         }
@@ -85,7 +85,7 @@ namespace LjubavNaPmfuTest
         [TestMethod]
         public void TestKorisnikMapper()
         {
-            LjubavNaPmfu.Models.Korisnik korisnik = new LjubavNaPmfu.Models.Korisnik(100, "user", "lozinka", "korisnik", "Lucija", 21, "Lucija Dumancic", "mobitel", 1);
+            LjubavNaPmfu.Models.Korisnik korisnik = new LjubavNaPmfu.Models.Korisnik(100, "user", "lozinka", "korisnik", "Lucija", 21, "Lucija Dumancic", "mobitel", 1, "z", "m");
             LjubavNaPmfu.Baza.Korisnik result = KorisnikMapper.ToDatabase(korisnik);
             LjubavNaPmfu.Baza.Korisnik expected = new LjubavNaPmfu.Baza.Korisnik
             {
@@ -98,7 +98,7 @@ namespace LjubavNaPmfuTest
         [TestMethod]
         public void TestKorisnikMapper2()
         {
-            LjubavNaPmfu.Models.Korisnik korisnik = new LjubavNaPmfu.Models.Korisnik(100, "user", "lozinka", "korisnik", "Lucija", 21, "Lucija Dumancic", "mobitel", 1);
+            LjubavNaPmfu.Models.Korisnik korisnik = new LjubavNaPmfu.Models.Korisnik(100, "user", "lozinka", "korisnik", "Lucija", 21, "Lucija Dumancic", "mobitel", 1, "z", "m");
             LjubavNaPmfu.Baza.Korisnik result = KorisnikMapper.ToDatabase(korisnik);
             
             Assert.AreEqual("Lucija Dumancic", result.Omeni);
