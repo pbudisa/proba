@@ -87,9 +87,7 @@ namespace LjubavNaPmfu.Baza
 
                 entity.Property(e => e.Mobitel).HasMaxLength(20);
 
-                entity.Property(e => e.Omeni)
-                    .HasColumnName("OMeni")
-                    .HasMaxLength(30);
+                entity.Property(e => e.Omeni).HasColumnName("OMeni");
 
                 entity.Property(e => e.Role).HasMaxLength(10);
 
