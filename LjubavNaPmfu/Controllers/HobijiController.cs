@@ -291,7 +291,7 @@ namespace LjubavNaPmfu.Controllers
             ViewBag.Kategorija = kategorija;
             int id_k = int.Parse(HttpContext.Session.GetString("Id"));
             var ja = _context.Korisnik.Where(x => x.Id.Equals(id_k)).FirstOrDefault();
-            var sve = _context.KorisnikHobiji.Include(k=>k.IdkNavigation).Include(h=>h.IdhNavigation).Where(x => x.IdhNavigation.Naziv.Equals(kategorija) && x.Idk!=id_k);
+            var sve = _context.KorisnikHobiji.Include(k=>k.IdkNavigation).Include(h=>h.IdhNavigation).Include(s=>s.IdkNavigation.IdsNavigation).Where(x => x.IdhNavigation.Naziv.Equals(kategorija) && x.Idk!=id_k);
             var popis = sve.ToList();
             var id = _context.Match.Where(x => x.IdPrvi.Equals(id_k));
             var odbijeni = _context.Odbijeni.Where(x => x.IdPrvi.Equals(id_k));
@@ -422,7 +422,7 @@ namespace LjubavNaPmfu.Controllers
         {
             ViewBag.Grupa = studij;
             int id_k = int.Parse(HttpContext.Session.GetString("Id"));
-            var ja = _context.Korisnik.Where(x => x.Id.Equals(id_k)).FirstOrDefault();
+            var ja = _context.Korisnik.Include(s=>s.IdsNavigation).Where(x => x.Id.Equals(id_k)).FirstOrDefault();
             var sve = _context.Korisnik.Where(x =>x.IdsNavigation.Naziv==studij && x.Id != id_k);
             var popis = sve.ToList();
             var id = _context.Match.Where(x => x.IdPrvi.Equals(id_k));
@@ -562,7 +562,7 @@ namespace LjubavNaPmfu.Controllers
             }
             int id_k = int.Parse(HttpContext.Session.GetString("Id"));
             var ja = _context.Korisnik.Where(x => x.Id.Equals(id_k)).FirstOrDefault();
-            var sve = _context.Korisnik.Where(x => x.Spol==spoll && x.Id != id_k);
+            var sve = _context.Korisnik.Include(s=>s.IdsNavigation).Where(x => x.Spol==spoll && x.Id != id_k);
             var popis = sve.ToList();
             var id = _context.Match.Where(x => x.IdPrvi.Equals(id_k));
             var odbijeni = _context.Odbijeni.Where(x => x.IdPrvi.Equals(id_k));
